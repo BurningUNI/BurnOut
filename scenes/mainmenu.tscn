@@ -1,0 +1,180 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxrsr3qq0x5lp"]
+
+[ext_resource type="Texture2D" uid="uid://cbchj4isndob4" path="res://assets/backgrounds/background_menu.png" id="1_natt5"]
+[ext_resource type="Script" uid="uid://cap2ntnxkvcba" path="res://scripts/mainmenu.gd" id="1_r3g3c"]
+[ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_r3g3c"]
+[ext_resource type="AudioStream" uid="uid://copl2yi7txnxy" path="res://assets/musiche/puzzle-game-bright-casual-video-game-music-249202.mp3" id="4_3vvtq"]
+[ext_resource type="AudioStream" uid="uid://ckjgvix8bqbb4" path="res://assets/musiche/minimal-pop-click-ui-1-198301.mp3" id="5_7yvfd"]
+[ext_resource type="AudioStream" uid="uid://ddoi53cmy0j5l" path="res://assets/musiche/game-start-6104.mp3" id="6_dfy5j"]
+[ext_resource type="Script" uid="uid://dpyhngepdlwtx" path="res://scenes/audio_control.gd" id="7_dfy5j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yvfd"]
+bg_color = Color(0.301961, 0.168627, 0.109804, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7yvfd"]
+color = Color(0.956863, 0.647059, 0.266667, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dfy5j"]
+thickness = 6
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3g3c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 2.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_natt5")
+expand_mode = 1
+
+[node name="MainButtons" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Separator" type="Control" parent="MainButtons/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainButtons/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_colors/font_outline_color = Color(0.294118, 0.168627, 0.0745098, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_r3g3c")
+theme_override_font_sizes/font_size = 60
+text = "BURNOUT
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainButtons"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Gioca" type="Button" parent="MainButtons/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r3g3c")
+theme_override_font_sizes/font_size = 35
+text = "GIOCA"
+
+[node name="Separator2" type="Control" parent="MainButtons/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Impostazioni" type="Button" parent="MainButtons/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r3g3c")
+theme_override_font_sizes/font_size = 35
+text = "IMPOSTAZIONI"
+
+[node name="Separator3" type="Control" parent="MainButtons/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Esci" type="Button" parent="MainButtons/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r3g3c")
+theme_override_font_sizes/font_size = 35
+text = "ESCI
+"
+
+[node name="Separator4" type="Control" parent="MainButtons/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sottofondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3vvtq")
+autoplay = true
+bus = &"Music"
+
+[node name="OverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7yvfd")
+bus = &"SFX"
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dfy5j")
+bus = &"SFX"
+
+[node name="Opzioni" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7yvfd")
+
+[node name="Label" type="Label" parent="Opzioni"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 385.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("2_r3g3c")
+theme_override_font_sizes/font_size = 35
+text = "
+OPZIONI"
+horizontal_alignment = 1
+
+[node name="Indietro" type="Button" parent="Opzioni"]
+custom_minimum_size = Vector2(120, 25)
+offset_left = 849.0
+offset_top = 579.0
+offset_right = 1137.0
+offset_bottom = 622.0
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("2_r3g3c")
+theme_override_font_sizes/font_size = 35
+text = "INDIETRO"
+
+[node name="AudioControl" type="HSlider" parent="Opzioni"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 163.0
+offset_right = 750.0
+offset_bottom = 202.0
+theme_override_styles/slider = SubResource("StyleBoxLine_7yvfd")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_dfy5j")
+value = 50.0
+script = ExtResource("7_dfy5j")
+
+[connection signal="button_down" from="MainButtons/HBoxContainer/VBoxContainer/Gioca" to="." method="on_button_hovered"]
+[connection signal="mouse_entered" from="MainButtons/HBoxContainer/VBoxContainer/Gioca" to="." method="_on_gioca_mouse_entered"]
+[connection signal="button_down" from="MainButtons/HBoxContainer/VBoxContainer/Impostazioni" to="." method="on_button_hovered"]
+[connection signal="mouse_entered" from="MainButtons/HBoxContainer/VBoxContainer/Impostazioni" to="." method="_on_impostazioni_mouse_entered"]
+[connection signal="button_down" from="MainButtons/HBoxContainer/VBoxContainer/Esci" to="." method="on_button_hovered"]
+[connection signal="mouse_entered" from="MainButtons/HBoxContainer/VBoxContainer/Esci" to="." method="_on_esci_mouse_entered"]
+[connection signal="button_down" from="Opzioni/Indietro" to="." method="on_button_hovered"]
+[connection signal="mouse_entered" from="Opzioni/Indietro" to="." method="_on_gioca_mouse_entered"]
+[connection signal="pressed" from="Opzioni/Indietro" to="." method="_on_indietro_opzioni_pressed"]
+[connection signal="value_changed" from="Opzioni/AudioControl" to="Opzioni/AudioControl" method="_on_value_changed"]

@@ -1,0 +1,14 @@
+HSlider
+Label
+Panel
+ColorRect
+TextureRect
+CheckBox
+VBoxContainer
+MarginContainer
+Control
+AudioStreamPlayer2D
+TileMap
+Camera2D
+CollisionShape2D
+AnimatedSprite2D
