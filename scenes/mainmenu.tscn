@@ -148,6 +148,7 @@ horizontal_alignment = 1
 
 [node name="Indietro" type="Button" parent="Opzioni"]
 custom_minimum_size = Vector2(120, 25)
+layout_mode = 0
 offset_left = 849.0
 offset_top = 579.0
 offset_right = 1137.0

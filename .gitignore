@@ -1,0 +1,39 @@
+# Godot-specific ignores
+.import/
+.mono/
+.godot/
+*.tscn.converted
+*.scn.converted
+export/
+export_presets.cfg
+
+# Built-in Godot shaders cache
+local_shaders/
+
+# macOS ignores
+.DS_Store
+
+# Windows ignores
+Thumbs.db
+
+# Linux ignores
+.directory
+
+# Visual Studio Code ignores (if you use it)
+.vscode/
+
+# Standard temporary files
+*~
+*.bak
+*.orig
+*.swp
+*.user
+*.save
+*.temp
+
+# IDE-specific ignores (add others if needed)
+.idea/ # IntelliJ/Rider
+*.iml # IntelliJ
+.project # Eclipse
+.classpath # Eclipse
+.settings/ # Eclipse
