@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://ck21epek5end8"
 
+[display]
+
+window/size/mode=1
+window/stretch/mode="canvas_items"
+window/main_scene="uid://dxrsr3qq0x5lp"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

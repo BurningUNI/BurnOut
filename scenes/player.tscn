@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=3 uid="uid://ckethyc4i20vj"]
 
-[ext_resource type="Script" uid="uid://bybd6xic8pkby" path="res://player.gd" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://bybd6xic8pkby" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dnvq20cdyscfc" path="res://assets/giocatore/Alex_idle_anim_16x16.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://xovkbsdl6qc1" path="res://assets/giocatore/Alex_run_16x16.png" id="3_qlg0r"]
 
