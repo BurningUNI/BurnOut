@@ -184,10 +184,10 @@ audio_bus_name = "Music"
 
 [node name="FullScreenControl" type="CheckButton" parent="Opzioni"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 321.0
-offset_right = 484.0
-offset_bottom = 364.0
+offset_left = 87.0
+offset_top = 322.0
+offset_right = 485.0
+offset_bottom = 365.0
 theme_override_fonts/font = ExtResource("2_r3g3c")
 theme_override_font_sizes/font_size = 25
 text = "Schermo intero
@@ -197,10 +197,10 @@ script = ExtResource("8_85riq")
 [node name="Indietro" type="Button" parent="Opzioni"]
 custom_minimum_size = Vector2(120, 25)
 layout_mode = 0
-offset_left = 849.0
-offset_top = 579.0
-offset_right = 1137.0
-offset_bottom = 622.0
+offset_left = 839.0
+offset_top = 582.0
+offset_right = 1127.0
+offset_bottom = 625.0
 theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
 theme_override_fonts/font = ExtResource("2_r3g3c")
 theme_override_font_sizes/font_size = 35
@@ -257,6 +257,17 @@ text = "
 Modalità visualizzazione"
 horizontal_alignment = 1
 
+[node name="CreditiButtons" type="Button" parent="Opzioni"]
+custom_minimum_size = Vector2(120, 25)
+offset_left = 81.0
+offset_top = 581.0
+offset_right = 201.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("2_r3g3c")
+theme_override_font_sizes/font_size = 15
+text = "CREDITI"
+
 [connection signal="button_down" from="MainButtons/HBoxContainer/VBoxContainer/Gioca" to="." method="on_button_hovered"]
 [connection signal="mouse_entered" from="MainButtons/HBoxContainer/VBoxContainer/Gioca" to="." method="_on_gioca_mouse_entered"]
 [connection signal="button_down" from="MainButtons/HBoxContainer/VBoxContainer/Impostazioni" to="." method="on_button_hovered"]
@@ -269,3 +280,6 @@ horizontal_alignment = 1
 [connection signal="mouse_entered" from="Opzioni/Indietro" to="." method="_on_gioca_mouse_entered"]
 [connection signal="pressed" from="Opzioni/Indietro" to="." method="_on_indietro_opzioni_pressed"]
 [connection signal="value_changed" from="Opzioni/SoundControl" to="Opzioni/SoundControl" method="_on_value_changed"]
+[connection signal="button_down" from="Opzioni/CreditiButtons" to="." method="on_button_hovered"]
+[connection signal="mouse_entered" from="Opzioni/CreditiButtons" to="." method="_on_gioca_mouse_entered"]
+[connection signal="pressed" from="Opzioni/CreditiButtons" to="." method="_on_crediti_buttons_pressed"]

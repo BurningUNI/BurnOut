@@ -43,3 +43,8 @@ func on_button_hovered():
 
 func _on_indietro_opzioni_pressed() -> void:
 	_ready()
+
+
+func _on_crediti_buttons_pressed() -> void:
+	await get_tree().create_timer(0.2).timeout
+	get_tree().change_scene_to_file("res://scenes/credits-scene/credits.tscn")
