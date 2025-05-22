@@ -1,9 +1,9 @@
+Button
+Label
 VBoxContainer
 ScrollContainer
 AudioStreamPlayer2D
-Button
 AnimationPlayer
-Label
 ColorRect
 VScrollBar
 MarginContainer

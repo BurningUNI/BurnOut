@@ -1,14 +1,18 @@
-[gd_scene format=3 uid="uid://b7waeoi1fiaof"]
+[gd_scene load_steps=2 format=3 uid="uid://b7waeoi1fiaof"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Script" uid="uid://c8i6if0t43656" path="res://scripts/credits.gd" id="1_0bpdh"]
+
+[node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0bpdh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,13 +21,73 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.301961, 0.168627, 0.109804, 1)
 
+[node name="Crediti" type="Label" parent="."]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 20.0
+offset_right = 610.0
+offset_bottom = 43.0
+text = "CREDITI"
+horizontal_alignment = 1
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.255
+anchor_top = 0.15
+anchor_right = 0.766
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "BURNOUT – Versione Demo
+
+Creato da:
+Daniele Baronetti  
+Riccardo Lorizzo
+
+Università degli Studi di Bari Aldo Moro  
+CdS in Informatica e Tecnologie per la Produzione del Software  
+Corso: Progettazione e Produzione Multimediale  
+Anno Accademico: 2024/2025
+
+Musica:  
+- Tema principale: \"Arcade Dreams\" di [Nome Artista o Free Music]  
+- SFX: DSK Overture, OctaSine v0.8, PAPU
+
+Grafica:  
+- Sprites: realizzati con Piskel e modificati in GameMaker  
+- Tileset stile Pokémon: [Nome tileset o \"da OpenGameArt\"]
+
+Programmazione:  
+- Realizzazione livelli, logica di gioco, gestione UI: Daniele Baronetti  
+- Meccaniche di interazione, quiz e boss fight: Riccardo Lorizzo
+
+Motore di gioco:  
+- Godot Engine 4.4.1
+
+Ringraziamenti:  
+- Prof. [Nome Professore]  
+- Tutti i compagni del corso per supporto e confronto
+
+Tutti i contenuti musicali e grafici utilizzati rispettano le licenze d’uso Creative Commons o sono stati creati ad hoc per il progetto.
+"
+autowrap_mode = 3
+
+[node name="Indietro" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1022.0
+offset_top = 608.0
+offset_right = 1105.0
+offset_bottom = 639.0
+text = "Torna al menù"
+
+[connection signal="mouse_entered" from="Indietro" to="." method="_on_indietro_mouse_entered"]
+[connection signal="pressed" from="Indietro" to="." method="_on_indietro_pressed"]
