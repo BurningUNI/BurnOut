@@ -1,8 +1,9 @@
+VBoxContainer
+ScrollContainer
+AudioStreamPlayer2D
 Button
 AnimationPlayer
 Label
-VBoxContainer
-ScrollContainer
 ColorRect
 VScrollBar
 MarginContainer
@@ -11,5 +12,3 @@ CheckButton
 CheckBox
 HSlider
 Panel
-Control
-AudioStreamPlayer2D

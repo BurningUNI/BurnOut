@@ -9,6 +9,8 @@ extends Control
 @onready var options= $Opzioni
 
 func _ready():
+	var musica = load("res://assets/musiche/puzzle-game-bright-casual-video-game-music-249202.mp3")
+	MusicController.play_music(musica, "menu")
 	main_buttons.visible=true
 	options.visible=false
 	star_button.button_down.connect(on_start_pressed)
@@ -29,16 +31,16 @@ func on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_gioca_mouse_entered():
-	$OverSound.play()
+	MusicController.play_hover_sound()
 
 func _on_impostazioni_mouse_entered():
-	$OverSound.play()
+	MusicController.play_hover_sound()
 
 func _on_esci_mouse_entered():
-	$OverSound.play()
+	MusicController.play_hover_sound()
 
 func on_button_hovered():
-	$ClickSound.play()
+	MusicController.play_click_sound()
 
 
 func _on_indietro_opzioni_pressed() -> void:
@@ -47,4 +49,4 @@ func _on_indietro_opzioni_pressed() -> void:
 
 func _on_crediti_buttons_pressed() -> void:
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_file("res://scenes/credits-scene/credits.tscn")
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

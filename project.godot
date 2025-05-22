@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://ck21epek5end8"
 
+[autoload]
+
+MusicController="*res://autoloads/MusicController.tscn"
+
 [display]
 
 window/size/mode=1

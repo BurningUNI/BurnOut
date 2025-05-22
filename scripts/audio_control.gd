@@ -6,7 +6,6 @@ const SAVE_PATH := "user://settings.cfg"
 
 func _ready():
 	audio_bus_id = AudioServer.get_bus_index(audio_bus_name)
-	
 	# Carica il volume salvato
 	var saved_value = load_saved_volume()
 	value = saved_value  # Imposta lo slider
