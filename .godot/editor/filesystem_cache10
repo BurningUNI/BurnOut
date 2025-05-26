@@ -1,10 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747991063
+::res://::1748259325
 audio_bus_layout.tres::AudioBusLayout/AudioBusLayout::5532054582637774075::1747908750::0::1::::<><><>0<>0<><>::
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::1661076940099872337::1747830048::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1747830048::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::5345401598998277660::1747830048::1747908786::1::::<><><>0<>0<>09ddb8b9031fa7abb15f137de22d736c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-node_2d.tscn::PackedScene::7593993341662317882::1747923683::0::1::::<><><>0<>0<><>::uid://declemb64c61i::::res://assets/casa/2dClassroomAssetPackByStyloo/WallFloorDoor second version tiling/strokespritesheet20121.png<>uid://q56lvkvof65y::::res://assets/casa/2dClassroomAssetPackByStyloo/Classroom/Classroom First Spritesheet 1.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn
+node_2d.tscn::PackedScene::7593993341662317882::1747998152::0::1::::<><><>0<>0<><>::uid://declemb64c61i::::res://assets/casa/2dClassroomAssetPackByStyloo/WallFloorDoor second version tiling/strokespritesheet20121.png<>uid://q56lvkvof65y::::res://assets/casa/2dClassroomAssetPackByStyloo/Classroom/Classroom First Spritesheet 1.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn
 README.md::TextFile/TextFile::-1::1747830048::0::1::::<><><>0<>0<><>::
 ::res://assets/::1747908750
 ::res://assets/backgrounds/::1747908786
@@ -251,8 +251,8 @@ minimal-pop-click-ui-1-198301.mp3::AudioStreamMP3/AudioStreamMP3::54937114644003
 mouse-click-331781.mp3::AudioStreamMP3/AudioStreamMP3::679185975686930326::1747830048::1747908786::1::::<><><>0<>0<>8395017ebb246a4ac5897daec9691fb8<>res://.godot/imported/mouse-click-331781.mp3-54b4cfa890f743c768917c0fceaa8d74.mp3str::
 puzzle-game-bright-casual-video-game-music-249202.mp3::AudioStreamMP3/AudioStreamMP3::5787168222384497986::1747830048::1747908786::1::::<><><>0<>0<>d20b9c8091c07a12721e63846f2a7df6<>res://.godot/imported/puzzle-game-bright-casual-video-game-music-249202.mp3-c11acfbdfcecf0384e431041395945fe.mp3str::
 puzzle-game-loop-bright-casual-video-game-music-249201.mp3::AudioStreamMP3/AudioStreamMP3::3471216840064495125::1747830048::1747908786::1::::<><><>0<>0<>889ecc5b48c2a5c5701866498743f241<>res://.godot/imported/puzzle-game-loop-bright-casual-video-game-music-249201.mp3-b860fcc630e22389221c43f444eea5be.mp3str::
-::res://autoloads/::1747908954
-MusicController.tscn::PackedScene::2247406683440260560::1747908954::0::1::::<><><>0<>0<><>::uid://qtlo2ifqurcb::::res://scripts/musicController.gd
+::res://autoloads/::1747998152
+MusicController.tscn::PackedScene::2247406683440260560::1747998152::0::1::::<><><>0<>0<><>::uid://qtlo2ifqurcb::::res://scripts/musicController.gd
 ::res://floor godot/::1747909239
 ReadMe.txt::TextFile/TextFile::-1::1747909238::0::1::::<><><>0<>0<><>::
 ::res://floor godot/Brick tiles/::1747911662
@@ -310,12 +310,13 @@ sprite_06.png::CompressedTexture2D/CompressedTexture2D::4406386646255736885::174
 sprite_07.png::CompressedTexture2D/CompressedTexture2D::5237633123321736605::1747909238::1747911662::1::::<><><>0<>0<>1d1647557470b7666547cecc90e36712<>res://.godot/imported/sprite_07.png-5db1135d9c657b084f3398efd1f7bb84.ctex::
 sprite_08.png::CompressedTexture2D/CompressedTexture2D::2727952508611490131::1747909238::1747911662::1::::<><><>0<>0<>371a1adb1b9f3bff3416dd92ab9a1239<>res://.godot/imported/sprite_08.png-8a3d1a32332dd5b846313209367354e9.ctex::
 sprite_09.png::CompressedTexture2D/CompressedTexture2D::7583883872997013817::1747909238::1747911662::1::::<><><>0<>0<>8723df04f6126da40867859b3452775a<>res://.godot/imported/sprite_09.png-3eaa3caea587ea090b9cdab6fb54c396.ctex::
-::res://scenes/::1747923689
-credits.tscn::PackedScene::4677887882748726961::1747909006::0::1::::<><><>0<>0<><>::uid://c8i6if0t43656::::res://scripts/credits.gd
-main.tscn::PackedScene::8516662099510932023::1747910397::0::1::::<><><>0<>0<><>::
-mainmenu.tscn::PackedScene::8809824637071232709::1747910397::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>res://scripts/audio_control.gd<>res://scripts/fullscreen_control.gd
-player.tscn::PackedScene::5484154703182083247::1747923689::0::1::::<><><>0<>0<><>::uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
-room.tscn::PackedScene::4041011270541896365::1747923688::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn
+::res://scenes/::1747998152
+credits.tscn::PackedScene::4677887882748726961::1747998152::0::1::::<><><>0<>0<><>::uid://c8i6if0t43656::::res://scripts/credits.gd
+main.tscn::PackedScene::8516662099510932023::1747998152::0::1::::<><><>0<>0<><>::
+mainmenu.tscn::PackedScene::8809824637071232709::1747998152::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://dpyhngepdlwtx::::res://scripts/audio_control.gd<>uid://c50ba7ymec1mv::::res://scripts/fullscreen_control.gd
+player.gd::GDScript::2204722374517543458::1747994490::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::5484154703182083247::1747998152::0::1::::<><><>0<>0<><>::uid://6n8pqo23v28m::::res://scenes/player.gd<>uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
+room.tscn::PackedScene::4041011270541896365::1747998152::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn
 ::res://scripts/::1747908750
 audio_control.gd::GDScript/GDScript::8262088328022669789::1747908750::0::1::::<>HSlider<><>0<>0<><>::
 credits.gd::GDScript/GDScript::7107485044740773863::1747908750::0::1::::<>Control<><>0<>0<><>::
