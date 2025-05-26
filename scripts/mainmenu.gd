@@ -4,7 +4,7 @@ extends Control
 @onready var star_button = $MainButtons/HBoxContainer/VBoxContainer/Gioca as Button
 @onready var settings_button = $MainButtons/HBoxContainer/VBoxContainer/Impostazioni as Button
 @onready var exit_button = $MainButtons/HBoxContainer/VBoxContainer/Esci
-@onready var start_level = preload("res://scenes/main.tscn") as PackedScene
+@onready var start_level = preload("res://scenes/letteraIniziale.tscn") as PackedScene
 @onready var main_buttons = $MainButtons
 @onready var options= $Opzioni
 
