@@ -1,39 +1,81 @@
-# Godot-specific ignores
+# -------------------------------
+# Godot Engine
+# -------------------------------
+
+# Cartelle e file generati automaticamente
 .import/
-.mono/
 .godot/
-*.tscn.converted
-*.scn.converted
-export/
+.export/
+.editor/
+
+# Configurazioni locali personali (layout, finestre, preferenze utente)
+editor_layout.cfg
 export_presets.cfg
+project.godot.user
+*.cfg.user
 
-# Built-in Godot shaders cache
-local_shaders/
-
-# macOS ignores
-.DS_Store
-
-# Windows ignores
-Thumbs.db
-
-# Linux ignores
-.directory
-
-# Visual Studio Code ignores (if you use it)
-.vscode/
-
-# Standard temporary files
-*~
+# Backup automatici
+*.tmp
 *.bak
-*.orig
-*.swp
-*.user
-*.save
-*.temp
+*.backup
+*.old
 
-# IDE-specific ignores (add others if needed)
-.idea/ # IntelliJ/Rider
-*.iml # IntelliJ
-.project # Eclipse
-.classpath # Eclipse
-.settings/ # Eclipse
+# Log
+*.log
+
+# -------------------------------
+# Editor di codice
+# -------------------------------
+
+# VS Code
+.vscode/
+.code-workspace
+
+# JetBrains (Rider, PhpStorm, ecc.)
+.idea/
+*.iml
+
+# -------------------------------
+# File temporanei di sistema
+# -------------------------------
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Swap ed editor temporanei
+*~
+*.swp
+*.swo
+*.swn
+*.tmp
+
+# -------------------------------
+# Ambienti virtuali / pacchetti
+# -------------------------------
+
+# Python
+.venv/
+.env/
+__pycache__/
+*.pyc
+
+# Node.js
+node_modules/
+
+# -------------------------------
+# File personali vari
+# -------------------------------
+
+# File ZIP, backup personali
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Output compilato (es. Godot esporta su HTML5, Android, ecc.)
+/build/
+/bin/
+/dist/
