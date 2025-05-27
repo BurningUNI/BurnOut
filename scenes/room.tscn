@@ -3607,11 +3607,15 @@ layer_4/tile_data = PackedInt32Array(-131073, 1441798, 6, -65537, 1441798, 7, -1
 
 [node name="Player" parent="." instance=ExtResource("10_qtoah")]
 top_level = true
-position = Vector2(-70, 58)
+position = Vector2(118, 33)
 scale = Vector2(1.5, 1.5)
 
 [node name="WallTop" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop"]
+visible = false
 position = Vector2(103, -1)
 shape = SubResource("RectangleShape2D_qtoah")
+
+[editable path="Player"]

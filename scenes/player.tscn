@@ -391,14 +391,14 @@ radius = 7.07107
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_qhqgy")
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 10)
+zoom = Vector2(4, 4)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"idle_down"
+animation = &"idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_fjrip")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 10)
-zoom = Vector2(4, 4)
