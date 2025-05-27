@@ -1,3 +1,6 @@
+CollisionShape2D
+StaticBody2D
+TileMap
 Button
 Label
 VBoxContainer
@@ -10,5 +13,3 @@ MarginContainer
 TextureRect
 CheckButton
 CheckBox
-HSlider
-Panel
