@@ -399,6 +399,6 @@ animation = &"idle_down"
 position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_fjrip")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 10)
 zoom = Vector2(4, 4)

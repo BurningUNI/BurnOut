@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bqi37yu6hf1u"]
+[gd_scene load_steps=24 format=3 uid="uid://bqi37yu6hf1u"]
 
 [ext_resource type="Texture2D" uid="uid://ch3hlesnkkjlh" path="res://assets/casa/house/bathroom.png" id="1_36trf"]
+[ext_resource type="Script" uid="uid://cttsrupeu3l7q" path="res://scripts/room.gd" id="1_eom3m"]
 [ext_resource type="Texture2D" uid="uid://chcivf4wpstwk" path="res://assets/casa/house/Floor.png" id="2_jn645"]
 [ext_resource type="Texture2D" uid="uid://dv2848ebhr8qs" path="res://assets/casa/house/kitchen furniture.png" id="3_qvc4m"]
 [ext_resource type="Texture2D" uid="uid://mmd0owrab2rx" path="res://assets/casa/house/livingroom furniture.png" id="4_7dqbv"]
@@ -3688,7 +3689,11 @@ sources/8 = SubResource("TileSetAtlasSource_vfrn5")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtoah"]
 size = Vector2(650, 19)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk5fv"]
+size = Vector2(21, 20)
+
 [node name="Room" type="Node2D"]
+script = ExtResource("1_eom3m")
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
@@ -3720,3 +3725,7 @@ shape = SubResource("RectangleShape2D_qtoah")
 [node name="Bed area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bed area"]
+position = Vector2(219, 21)
+shape = SubResource("RectangleShape2D_tk5fv")
+
+[connection signal="body_entered" from="Bed area" to="." method="_on_bed_area_body_entered"]
