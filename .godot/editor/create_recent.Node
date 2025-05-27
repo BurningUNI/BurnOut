@@ -1,15 +1,25 @@
+<<<<<<< HEAD
 CollisionShape2D
 StaticBody2D
 TileMap
 Button
+=======
+>>>>>>> 6ab219b8e5c1101057a019f917481159a7c31666
 Label
+Timer
+TextureRect
+RichTextLabel
+ColorRect
+CanvasLayer
+Button
 VBoxContainer
 ScrollContainer
 AudioStreamPlayer2D
 AnimationPlayer
-ColorRect
 VScrollBar
 MarginContainer
-TextureRect
 CheckButton
+<<<<<<< HEAD
 CheckBox
+=======
+>>>>>>> 6ab219b8e5c1101057a019f917481159a7c31666
