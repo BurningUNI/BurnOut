@@ -15,11 +15,7 @@ func _process(_delta):
 	if not testo_finito and testo_lettera.carattere_attuale >= testo_lettera.testo_completo.length():
 		testo_finito = true
 		label_avvio.visible = true
-		timer_lampeggio.start()
-
-func _on_TimerLampeggio_timeout():
-	print("Timer chiamato")  # <-- Controllo
-	label_avvio.visible = not label_avvio.visible
+		timer_lampeggio.start()	
 
 func _unhandled_input(event):
 	if testo_finito and event.is_action_pressed("interact"):
@@ -27,4 +23,5 @@ func _unhandled_input(event):
 
 
 func _on_timer_lampeggio_timeout() -> void:
-	pass # Replace with function body.
+	print("Timer chiamato")  # <-- Controllo
+	label_avvio.visible = not label_avvio.visible
