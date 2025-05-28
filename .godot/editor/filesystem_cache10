@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1748339169
+::res://::1748421767
 audio_bus_layout.tres::AudioBusLayout/AudioBusLayout::5532054582637774075::1747908750::0::1::::<><><>0<>0<><>::
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::1661076940099872337::1747830048::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1747830048::0::1::::<><><>0<>0<><>::
@@ -163,14 +163,14 @@ sprite_06.png::CompressedTexture2D/CompressedTexture2D::4406386646255736885::174
 sprite_07.png::CompressedTexture2D/CompressedTexture2D::5237633123321736605::1747909238::1747911662::1::::<><><>0<>0<>1d1647557470b7666547cecc90e36712<>res://.godot/imported/sprite_07.png-5db1135d9c657b084f3398efd1f7bb84.ctex::
 sprite_08.png::CompressedTexture2D/CompressedTexture2D::2727952508611490131::1747909238::1747911662::1::::<><><>0<>0<>371a1adb1b9f3bff3416dd92ab9a1239<>res://.godot/imported/sprite_08.png-8a3d1a32332dd5b846313209367354e9.ctex::
 sprite_09.png::CompressedTexture2D/CompressedTexture2D::7583883872997013817::1747909238::1747911662::1::::<><><>0<>0<>8723df04f6126da40867859b3452775a<>res://.godot/imported/sprite_09.png-3eaa3caea587ea090b9cdab6fb54c396.ctex::
-::res://scenes/::1748338862
+::res://scenes/::1748365934
 credits.tscn::PackedScene/PackedScene::4677887882748726961::1748336125::0::1::::<><><>0<>0<><>::uid://c8i6if0t43656::::res://scripts/credits.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
-letteraIniziale.tscn::PackedScene::7195509833813789137::1748338532::0::1::::<><><>0<>0<><>::uid://c5qduwkhv4ffn::::res://assets/lettera/background_scrivania.jpg<>uid://nn04tfs3rfkf::::res://scripts/letterainiziale.gd<>uid://b1wgkfmof4j5y::::res://assets/lettera/Adobe Express - file.png<>uid://cw7chrnd4s6gj::::res://scripts/testo_lettera.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
+letteraIniziale.tscn::PackedScene/PackedScene::7195509833813789137::1748365934::0::1::::<><><>0<>0<><>::uid://c5qduwkhv4ffn::::res://assets/lettera/background_scrivania.jpg<>uid://nn04tfs3rfkf::::res://scripts/letterainiziale.gd<>uid://b1wgkfmof4j5y::::res://assets/lettera/Adobe Express - file.png<>uid://cw7chrnd4s6gj::::res://scripts/testo_lettera.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
 main.tscn::PackedScene/PackedScene::8516662099510932023::1748336125::0::1::::<><><>0<>0<><>::
-mainmenu.tscn::PackedScene::8809824637071232709::1748338532::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://dpyhngepdlwtx::::res://scripts/audio_control.gd<>uid://c50ba7ymec1mv::::res://scripts/fullscreen_control.gd
-player.tscn::PackedScene/PackedScene::5484154703182083247::1748336124::0::1::::<><><>0<>0<><>::uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
-room.tscn::PackedScene::103756344647384900::1748338862::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://cisfe3277pdj8::::res://assets/casa/modular_pixel_houses/windows.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn
-::res://scripts/::1748337020
+mainmenu.tscn::PackedScene/PackedScene::8809824637071232709::1748365934::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://dpyhngepdlwtx::::res://scripts/audio_control.gd<>uid://c50ba7ymec1mv::::res://scripts/fullscreen_control.gd
+player.tscn::PackedScene/PackedScene::5484154703182083247::1748365934::0::1::::<><><>0<>0<><>::uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
+room.tscn::PackedScene/PackedScene::103756344647384900::1748365934::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>uid://cttsrupeu3l7q::::res://scripts/room.gd<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://cisfe3277pdj8::::res://assets/casa/modular_pixel_houses/windows.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn
+::res://scripts/::1748339682
 audio_control.gd::GDScript/GDScript::8262088328022669789::1747908750::0::1::::<>HSlider<><>0<>0<><>::
 credits.gd::GDScript/GDScript::7107485044740773863::1747908750::0::1::::<>Control<><>0<>0<><>::
 fullscreen_control.gd::GDScript/GDScript::6930178555744624613::1747908750::0::1::::<>CheckButton<><>0<>0<><>::
@@ -178,4 +178,5 @@ letterainiziale.gd::GDScript/GDScript::940862597463205813::1748337020::0::1::::<
 mainmenu.gd::GDScript/GDScript::3545934194539926399::1748336675::0::1::::Main_Menu<>Control<><>0<>0<><>::
 musicController.gd::GDScript/GDScript::1162938994309007049::1747908750::0::1::::<>Node2D<><>0<>0<><>::
 player.gd::GDScript/GDScript::4073256039880348970::1747908750::0::1::::<>CharacterBody2D<><>0<>0<><>::
+room.gd::GDScript/GDScript::6146776912050784604::1748339682::0::1::::<>Node2D<><>0<>0<><>::
 testo_lettera.gd::GDScript/GDScript::6383190863250907985::1748336282::0::1::::<>RichTextLabel<><>0<>0<><>::
