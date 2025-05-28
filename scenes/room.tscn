@@ -3725,7 +3725,7 @@ shape = SubResource("RectangleShape2D_qtoah")
 [node name="Bed area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bed area"]
-position = Vector2(219, 21)
+position = Vector2(219, 19)
 shape = SubResource("RectangleShape2D_tk5fv")
 
 [connection signal="body_entered" from="Bed area" to="." method="_on_bed_area_body_entered"]
