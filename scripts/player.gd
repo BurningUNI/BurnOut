@@ -5,6 +5,7 @@ const SPEED = 70
 
 var last_direction = "down"
 
+
 func _physics_process(delta):
 	var direction = Vector2.ZERO
 
@@ -19,6 +20,8 @@ func _physics_process(delta):
 
 	velocity = direction.normalized() * SPEED
 	move_and_slide()
+	print(position)
+
 
 	# ANIMAZIONE
 	if direction != Vector2.ZERO:
