@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1748433476
+::res://::1748519740
 audio_bus_layout.tres::AudioBusLayout/AudioBusLayout::5532054582637774075::1747908752::0::1::::<><><>0<>0<><>::
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::1661076940099872337::1747830050::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1747830050::0::1::::<><><>0<>0<><>::
@@ -91,8 +91,14 @@ Alex_run_16x16.png::CompressedTexture2D/CompressedTexture2D::1644537687500799014
 Alex_sit2_16x16.png::CompressedTexture2D/CompressedTexture2D::5956413274019033507::1747830050::1747908788::1::::<><><>0<>0<>d8b750cec06e65868ead9a93f7312d2a<>res://.godot/imported/Alex_sit2_16x16.png-ecef0b25d7cc90ca6b3d43e07bb94406.ctex::
 Alex_sit3_16x16.png::CompressedTexture2D/CompressedTexture2D::482856387236473298::1747830050::1747908788::1::::<><><>0<>0<>7cc6d0bbc99b086815e824001eb4c117<>res://.godot/imported/Alex_sit3_16x16.png-d9738625de6b2758b2ec73ac436e63e3.ctex::
 Alex_sit_16x16.png::CompressedTexture2D/CompressedTexture2D::1079674468220308775::1747830050::1747908788::1::::<><><>0<>0<>213e1705015e4ec3e3794860416069a6<>res://.godot/imported/Alex_sit_16x16.png-dc91daec4bf2f2613b5f7a29e9244454.ctex::
-::res://assets/icons/::1748421820
+::res://assets/icons/::1748447005
+bed.png::CompressedTexture2D/CompressedTexture2D::339166986495369948::1748447005::1748447005::1::::<><><>0<>0<>7cc2d175f78aab53870d136771f4bbf0<>res://.godot/imported/bed.png-baacab2a54eacb8c5fd4f1355a0ffeee.ctex::
+icons8-cervello-48.png::CompressedTexture2D/CompressedTexture2D::5488343572588477328::1748435646::1748435677::1::::<><><>0<>0<>a46c5af821a223e8107b84dd6ac16391<>res://.godot/imported/icons8-cervello-48.png-d526cc859c685724ad4ec62e44eafb2a.ctex::
+icons8-soldi-50.png::CompressedTexture2D/CompressedTexture2D::7018758229459607550::1748443467::1748443467::1::::<><><>0<>0<>2e3ad16465cef232352ff1948a560f78<>res://.godot/imported/icons8-soldi-50.png-4e297164b7566532f4b28a21ba0f2ffd.ctex::
 icons8-volume-24.png::CompressedTexture2D/CompressedTexture2D::8131345689987541731::1747908752::1747909008::1::::<><><>0<>0<>2fbdfc9c134469fd9fdb10bc501f8b0e<>res://.godot/imported/icons8-volume-24.png-1a592a5cdb95228a2922d954233ac212.ctex::
+Rectangle2.png::CompressedTexture2D/CompressedTexture2D::4505248124971769537::1748440712::1748440712::1::::<><><>0<>0<>fe932e41812cb9d5e5557d452ca85ba2<>res://.godot/imported/Rectangle2.png-ad192e91800f239d06e29ecd046736d3.ctex::
+Rectangle 1.png::CompressedTexture2D/CompressedTexture2D::7253431449427849064::1748440712::1748440712::1::::<><><>0<>0<>b00577ab5224be6a2a6d28be8b2965b6<>res://.godot/imported/Rectangle 1.png-da7775d6709326ec9c4f70110853d589.ctex::
+sprites.png::CompressedTexture2D/CompressedTexture2D::3831991623605923164::1748439471::1748439472::1::::<><><>0<>0<>b399e99cf7bfbb255c08305335b06dff<>res://.godot/imported/sprites.png-3eea3f8b46a1710cc6d6edeb33e7b4d5.ctex::
 ::res://assets/lettera/::1748421820
 Adobe Express - file.png::CompressedTexture2D/CompressedTexture2D::4257129370565238448::1748336284::1748336626::1::::<><><>0<>0<>e6b56b789c6c369150ae6ade5c03dd70<>res://.godot/imported/Adobe Express - file.png-f4a91f1e920bfbf9a8c8355ba4be6dd7.ctex::
 background_scrivania.jpg::CompressedTexture2D/CompressedTexture2D::6911755758757531491::1748336284::1748336626::1::::<><><>0<>0<>e15e35302720bc06b895cf4dda404db3<>res://.godot/imported/background_scrivania.jpg-a876b826b6b17463d0c70c4cd15e173f.ctex::
@@ -163,19 +169,25 @@ sprite_06.png::CompressedTexture2D/CompressedTexture2D::4406386646255736885::174
 sprite_07.png::CompressedTexture2D/CompressedTexture2D::5237633123321736605::1747909240::1747911664::1::::<><><>0<>0<>1d1647557470b7666547cecc90e36712<>res://.godot/imported/sprite_07.png-5db1135d9c657b084f3398efd1f7bb84.ctex::
 sprite_08.png::CompressedTexture2D/CompressedTexture2D::2727952508611490131::1747909240::1747911664::1::::<><><>0<>0<>371a1adb1b9f3bff3416dd92ab9a1239<>res://.godot/imported/sprite_08.png-8a3d1a32332dd5b846313209367354e9.ctex::
 sprite_09.png::CompressedTexture2D/CompressedTexture2D::7583883872997013817::1747909240::1747911664::1::::<><><>0<>0<>8723df04f6126da40867859b3452775a<>res://.godot/imported/sprite_09.png-3eaa3caea587ea090b9cdab6fb54c396.ctex::
-::res://scenes/::1748433323
+::res://scenes/::1748449131
 credits.tscn::PackedScene/PackedScene::4677887882748726961::1748336126::0::1::::<><><>0<>0<><>::uid://c8i6if0t43656::::res://scripts/credits.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
-letteraIniziale.tscn::PackedScene::7195509833813789137::1748433323::0::1::::<><><>0<>0<><>::uid://c5qduwkhv4ffn::::res://assets/lettera/background_scrivania.jpg<>uid://nn04tfs3rfkf::::res://scripts/letterainiziale.gd<>uid://b1wgkfmof4j5y::::res://assets/lettera/Adobe Express - file.png<>uid://cw7chrnd4s6gj::::res://scripts/testo_lettera.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
+letteraIniziale.tscn::PackedScene::7195509833813789137::1748449130::0::1::::<><><>0<>0<><>::uid://c5qduwkhv4ffn::::res://assets/lettera/background_scrivania.jpg<>uid://nn04tfs3rfkf::::res://scripts/letterainiziale.gd<>uid://b1wgkfmof4j5y::::res://assets/lettera/Adobe Express - file.png<>uid://cw7chrnd4s6gj::::res://scripts/testo_lettera.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
 main.tscn::PackedScene/PackedScene::8516662099510932023::1748336126::0::1::::<><><>0<>0<><>::
-mainmenu.tscn::PackedScene::8809824637071232709::1748433322::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://dpyhngepdlwtx::::res://scripts/audio_control.gd<>uid://c50ba7ymec1mv::::res://scripts/fullscreen_control.gd
-player.tscn::PackedScene::5484154703182083247::1748433323::0::1::::<><><>0<>0<><>::uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
-room.tscn::PackedScene::103756344647384900::1748433323::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>res://scripts/room.gd<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://cisfe3277pdj8::::res://assets/casa/modular_pixel_houses/windows.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn
-::res://scenes/oggetti/::1748426991
-::res://scripts/::1748423411
+mainmenu.tscn::PackedScene::8809824637071232709::1748449130::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://dpyhngepdlwtx::::res://scripts/audio_control.gd<>uid://c50ba7ymec1mv::::res://scripts/fullscreen_control.gd
+player.tscn::PackedScene::5484154703182083247::1748449131::0::1::::<><><>0<>0<><>::uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
+room.tscn::PackedScene::103756344647384900::1748449130::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>res://scripts/room.gd<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://cisfe3277pdj8::::res://assets/casa/modular_pixel_houses/windows.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://h552vo5nd66w::::res://scenes/oggetti/letto.tscn
+::res://scenes/oggetti/::1748449131
+letto.tscn::PackedScene::555124090304650840::1748449131::0::1::::<><><>0<>0<><>::uid://dsw0st8bf35sf::::res://scripts/letto.gd<>uid://e3kbbrhdxjqq::::res://assets/icons/bed.png
+::res://scenes/ui/::1748449131
+hud.tscn::PackedScene::3134339997219495314::1748449131::0::1::::<><><>0<>0<><>::uid://b4sagxu3kfgtj::::res://scripts/hud.gd<>uid://dblu7rn05exue::::res://assets/icons/Rectangle 1.png<>uid://b5gm1p278prfl::::res://assets/icons/Rectangle2.png<>uid://ckguhmupujxvc::::res://assets/icons/icons8-cervello-48.png<>uid://c6866mrkuq1cs::::res://assets/icons/icons8-soldi-50.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
+::res://scripts/::1748448786
 audio_control.gd::GDScript/GDScript::8262088328022669789::1747908752::0::1::::<>HSlider<><>0<>0<><>::
 credits.gd::GDScript/GDScript::7107485044740773863::1747908752::0::1::::<>Control<><>0<>0<><>::
 fullscreen_control.gd::GDScript/GDScript::6930178555744624613::1747908752::0::1::::<>CheckButton<><>0<>0<><>::
+GameState.gd::GDScript::3414977610666530107::1748447794::0::1::::<>Node<><>0<>0<><>::
+hud.gd::GDScript::4459067903751446511::1748447946::0::1::::<>CanvasLayer<><>0<>0<><>::
 letterainiziale.gd::GDScript/GDScript::940862597463205813::1748337022::0::1::::<>CanvasLayer<><>0<>0<><>::
+letto.gd::GDScript::8469628665238102257::1748448786::0::1::::<>Area2D<><>0<>0<><>::
 mainmenu.gd::GDScript/GDScript::3545934194539926399::1748336676::0::1::::Main_Menu<>Control<><>0<>0<><>::
 musicController.gd::GDScript/GDScript::1162938994309007049::1747908752::0::1::::<>Node2D<><>0<>0<><>::
 player.gd::GDScript/GDScript::4073256039880348970::1748422138::0::1::::<>CharacterBody2D<><>0<>0<><>::

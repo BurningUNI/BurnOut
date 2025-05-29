@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkwkee3ck8nss"]
+
+[ext_resource type="Script" uid="uid://b4sagxu3kfgtj" path="res://scripts/hud.gd" id="1_8qguk"]
+[ext_resource type="Texture2D" uid="uid://dblu7rn05exue" path="res://assets/icons/Rectangle 1.png" id="1_bo48s"]
+[ext_resource type="Texture2D" uid="uid://b5gm1p278prfl" path="res://assets/icons/Rectangle2.png" id="2_8qguk"]
+[ext_resource type="Texture2D" uid="uid://ckguhmupujxvc" path="res://assets/icons/icons8-cervello-48.png" id="3_136eg"]
+[ext_resource type="Texture2D" uid="uid://c6866mrkuq1cs" path="res://assets/icons/icons8-soldi-50.png" id="5_136eg"]
+[ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="6_oj5la"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5la"]
+bg_color = Color(0.196078, 0.0980392, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8qguk")
+
+[node name="SaluteMentaleBar" type="TextureProgressBar" parent="."]
+offset_left = 70.0
+offset_top = 20.0
+offset_right = 546.0
+offset_bottom = 63.0
+value = 75.0
+texture_under = ExtResource("1_bo48s")
+texture_progress = ExtResource("2_8qguk")
+
+[node name="CervelloIcona" type="TextureRect" parent="SaluteMentaleBar"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -8.0
+offset_right = -5.0
+offset_bottom = 40.0
+texture = ExtResource("3_136eg")
+
+[node name="StatisticheSfondo" type="Panel" parent="."]
+offset_left = 1969.0
+offset_top = 19.0
+offset_right = 2218.0
+offset_bottom = 206.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_oj5la")
+
+[node name="SoldiIcona" type="TextureRect" parent="StatisticheSfondo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.899
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = 93.0
+offset_right = -139.851
+offset_bottom = 88.5
+texture = ExtResource("5_136eg")
+
+[node name="QuantitaSoldi" type="Label" parent="StatisticheSfondo/SoldiIcona"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.211
+anchor_right = 2.783
+anchor_bottom = 1.0
+offset_left = 106.513
+offset_top = 31.0
+offset_right = -57.9891
+offset_bottom = -37.0
+theme_override_colors/font_color = Color(0, 0.831373, 0, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 25
+
+[node name="OrologioLabel" type="Label" parent="StatisticheSfondo"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 118.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NotificaMessaggioLabel" type="Label" parent="."]
+offset_left = 788.0
+offset_top = 1142.0
+offset_right = 1690.0
+offset_bottom = 1294.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
