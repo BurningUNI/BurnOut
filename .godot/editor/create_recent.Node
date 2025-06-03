@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 TextureRect
 Control
 Button
 Label
 VBoxContainer
 Panel
+=======
+TileMap
+Node2D
+>>>>>>> 7e381442cf4e690bb6b528a2448a83a9c51daa03
 CollisionShape2D
 Area2D
 StaticBody2D
@@ -12,3 +17,8 @@ CanvasLayer
 TextureProgressBar
 HBoxContainer
 ProgressBar
+<<<<<<< HEAD
+=======
+Control
+Camera2D
+>>>>>>> 7e381442cf4e690bb6b528a2448a83a9c51daa03

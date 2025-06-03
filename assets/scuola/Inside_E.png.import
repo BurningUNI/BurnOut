@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckguhmupujxvc"
-path="res://.godot/imported/icons8-cervello-48.png-d526cc859c685724ad4ec62e44eafb2a.ctex"
+uid="uid://cxaeplms5qc1q"
+path="res://.godot/imported/Inside_E.png-392d181b560f91e8387a9000a2b7b735.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/icons8-cervello-48.png"
-dest_files=["res://.godot/imported/icons8-cervello-48.png-d526cc859c685724ad4ec62e44eafb2a.ctex"]
+source_file="res://assets/scuola/Inside_E.png"
+dest_files=["res://.godot/imported/Inside_E.png-392d181b560f91e8387a9000a2b7b735.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4sagxu3kfgtj" path="res://scripts/hud.gd" id="1_8qguk"]
 [ext_resource type="Texture2D" uid="uid://dblu7rn05exue" path="res://assets/icons/Rectangle 1.png" id="1_bo48s"]
 [ext_resource type="Texture2D" uid="uid://b5gm1p278prfl" path="res://assets/icons/Rectangle2.png" id="2_8qguk"]
-[ext_resource type="Texture2D" uid="uid://ckguhmupujxvc" path="res://assets/icons/icons8-cervello-48.png" id="3_136eg"]
+[ext_resource type="Texture2D" uid="uid://ckguhmupujxvc" path="res://assets/icons/CervelloIcona.png" id="3_136eg"]
 [ext_resource type="Texture2D" uid="uid://c6866mrkuq1cs" path="res://assets/icons/icons8-soldi-50.png" id="5_136eg"]
 [ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="6_oj5la"]
 
