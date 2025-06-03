@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4sagxu3kfgtj" path="res://scripts/hud.gd" id="1_8qguk"]
 [ext_resource type="Texture2D" uid="uid://dblu7rn05exue" path="res://assets/icons/Rectangle 1.png" id="1_bo48s"]
 [ext_resource type="Texture2D" uid="uid://b5gm1p278prfl" path="res://assets/icons/Rectangle2.png" id="2_8qguk"]
-[ext_resource type="Texture2D" uid="uid://ckguhmupujxvc" path="res://assets/icons/CervelloIcona.png" id="3_136eg"]
+[ext_resource type="Texture2D" uid="uid://clqtecsl8jvka" path="res://assets/icons/CervelloIcona.png" id="3_136eg"]
 [ext_resource type="Texture2D" uid="uid://c6866mrkuq1cs" path="res://assets/icons/icons8-soldi-50.png" id="5_136eg"]
 [ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="6_oj5la"]
 
@@ -24,10 +24,10 @@ texture_progress = ExtResource("2_8qguk")
 
 [node name="CervelloIcona" type="TextureRect" parent="SaluteMentaleBar"]
 layout_mode = 0
-offset_left = -53.0
-offset_top = -8.0
-offset_right = -5.0
-offset_bottom = 40.0
+offset_left = -71.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = 50.0
 texture = ExtResource("3_136eg")
 
 [node name="StatisticheSfondo" type="Panel" parent="."]

@@ -8,6 +8,9 @@ var ora = 11
 var minuti = 30
 var giorno = 1 # Numero del giorno corrente (1, 2, 3...)
 
+# Nuovo: Variabile per tracciare il primo avvio
+var is_first_boot = true # Inizialmente è vero, perché al primo avvio non c'è salvataggio
+
 # Nuovo: Array per i nomi dei giorni della settimana
 var nomi_giorni_settimana = ["DOM", "LUN", "MAR", "MER", "GIO", "VEN", "SAB"]
 var indice_giorno_settimana = 0 # 0 = Domenica, 1 = Lunedì, ecc. (corrisponde all'array)
@@ -40,8 +43,8 @@ func _ready():
 		print("Gioco caricato con successo!")
 	else:
 		print("Nessun salvataggio trovato o errore nel caricamento, inizio nuova partita.")
-		# Se non c'è un salvataggio, inizializza le variabili ai valori predefiniti
-		# (che sono già quelli che hai dichiarato all'inizio dello script)
+		# Se non c'è un salvataggio, is_first_boot rimane true.
+		# Altrimenti, se un salvataggio esiste e viene caricato, is_first_boot sarà false.
 
 	# Configurazione Timer Tempo (1 minuto reale = 1 ora di gioco)
 	timer_tempo.wait_time = 1.0 # Ogni 1 secondo reale, il tempo di gioco avanza di 1 minuto
@@ -158,7 +161,8 @@ func save_game() -> Error:
 		"ora": ora,
 		"minuti": minuti,
 		"giorno": giorno,
-		"indice_giorno_settimana": indice_giorno_settimana
+		"indice_giorno_settimana": indice_giorno_settimana,
+		"is_first_boot": false # Imposta a false quando salvi il gioco
 		# Aggiungi qui tutte le altre variabili che vuoi salvare
 	}
 
@@ -176,11 +180,13 @@ func save_game() -> Error:
 func load_game() -> bool:
 	if not FileAccess.file_exists(SAVE_PATH):
 		print("Nessun file di salvataggio trovato in: ", SAVE_PATH)
+		is_first_boot = true # Se non c'è un salvataggio, è il primo avvio
 		return false # Nessun file da caricare
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file == null:
 		print("Errore nell'apertura del file per lettura: ", FileAccess.get_open_error())
+		is_first_boot = true # In caso di errore nel caricamento, consideralo primo avvio
 		return false
 
 	var content = file.get_as_text()
@@ -189,6 +195,7 @@ func load_game() -> bool:
 	var json_parsed = JSON.parse_string(content)
 	if json_parsed == null:
 		print("Errore nel parsing JSON del file di salvataggio.")
+		is_first_boot = true # In caso di errore nel parsing, consideralo primo avvio
 		return false
 
 	# Assegna i valori caricati alle variabili di stato
@@ -198,6 +205,7 @@ func load_game() -> bool:
 	minuti = int(json_parsed.get("minuti", 30))
 	giorno = int(json_parsed.get("giorno", 1))
 	indice_giorno_settimana = int(json_parsed.get("indice_giorno_settimana", 0))
+	is_first_boot = bool(json_parsed.get("is_first_boot", true)) # Carica lo stato del primo avvio
 
 	# Aggiungi qui il caricamento di tutte le altre variabili
 

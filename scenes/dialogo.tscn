@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://lmfcs1l2fkyn"]
 
-[ext_resource type="Script" uid="uid://ca1vek52qsak5" path="res://dialogo.gd" id="1_hbhh0"]
+[ext_resource type="Script" uid="uid://ca1vek52qsak5" path="res://scripts/dialogo.gd" id="1_hbhh0"]
 [ext_resource type="Texture2D" uid="uid://dpm3f1hqlka45" path="res://scenes/oggetti/bg.jpg" id="2_tnegg"]
 [ext_resource type="Texture2D" uid="uid://bphxowngkji68" path="res://scenes/oggetti/PROFESSORE-removebg-preview.png" id="3_tnegg"]
 

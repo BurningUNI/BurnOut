@@ -40,7 +40,6 @@ texture = ExtResource("1_natt5")
 expand_mode = 1
 
 [node name="MainButtons" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
