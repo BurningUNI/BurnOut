@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://lmfcs1l2fkyn"]
+
+[ext_resource type="Script" uid="uid://ca1vek52qsak5" path="res://dialogo.gd" id="1_hbhh0"]
+[ext_resource type="Texture2D" uid="uid://dpm3f1hqlka45" path="res://scenes/oggetti/bg.jpg" id="2_tnegg"]
+[ext_resource type="Texture2D" uid="uid://bphxowngkji68" path="res://scenes/oggetti/PROFESSORE-removebg-preview.png" id="3_tnegg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f60r7"]
+
+[sub_resource type="Theme" id="Theme_dc3ot"]
+
+[node name="Dialogo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbhh0")
+
+[node name="Sfondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -104.0
+offset_right = 1149.0
+offset_bottom = 920.0
+texture = ExtResource("2_tnegg")
+
+[node name="DialogBox" type="Control" parent="."]
+material = SubResource("CanvasItemMaterial_f60r7")
+anchors_preset = 0
+offset_left = 83.0
+offset_top = 363.0
+offset_right = 1031.0
+offset_bottom = 613.0
+theme = SubResource("Theme_dc3ot")
+
+[node name="DialogoLabel" type="Label" parent="DialogBox"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 48.0
+offset_right = 958.0
+offset_bottom = 119.0
+text = "\"Ciao! Quale corso vuoi seguire?\""
+horizontal_alignment = 1
+
+[node name="ProfessorIcon" type="TextureRect" parent="DialogBox/DialogoLabel"]
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 145.0
+
+[node name="Professore-removebg-preview" type="Sprite2D" parent="DialogBox/DialogoLabel"]
+position = Vector2(919, 81)
+scale = Vector2(0.79, 0.758)
+texture = ExtResource("3_tnegg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBox"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 114.0
+offset_right = 745.0
+offset_bottom = 186.0
+
+[node name="analisi1" type="Button" parent="DialogBox/VBoxContainer"]
+layout_mode = 2
+text = "Analisi1"
+
+[node name="programmazione1" type="Button" parent="DialogBox/VBoxContainer"]
+layout_mode = 2
+text = "Programmazione1"
+
+[node name="DomandaBox" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DomandaLabel" type="Label" parent="DomandaBox"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 402.0
+offset_right = 1042.0
+offset_bottom = 651.0
+
+[node name="rispostaB" type="Button" parent="DomandaBox"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 514.0
+offset_right = 830.0
+offset_bottom = 542.0
+
+[node name="rispostaA" type="Button" parent="DomandaBox"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 478.0
+offset_right = 829.0
+offset_bottom = 511.0
+
+[node name="Professore-removebg-preview" type="Sprite2D" parent="DomandaBox"]
+position = Vector2(1003, 491)
+scale = Vector2(0.79, 0.758)
+texture = ExtResource("3_tnegg")
