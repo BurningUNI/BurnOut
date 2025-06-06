@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
-const SPEED = 70
+
+@export var SPEED: float = 70  # <-- velocità modificabile da Inspector
 
 var last_direction = "down"
-
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -20,11 +20,11 @@ func _physics_process(delta):
 
 	velocity = direction.normalized() * SPEED
 	move_and_slide()
-	print(position)
-
 
 	# ANIMAZIONE
 	if direction != Vector2.ZERO:
+		print(position)
+
 		if abs(direction.x) > abs(direction.y):
 			if direction.x > 0:
 				sprite.play("walk_right")

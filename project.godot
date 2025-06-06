@@ -22,7 +22,9 @@ buses/default_bus_layout="uid://ck21epek5end8"
 [autoload]
 
 MusicController="*res://autoloads/MusicController.tscn"
-GameState="*res://scripts/GameState.gd"
+SettingsManager="*res://scripts/autoload/SettingsManager.gd"
+StatsManager="*res://scripts/autoload/StatsManager.gd"
+Global="*res://scripts/autoload/Global.gd"
 
 [display]
 

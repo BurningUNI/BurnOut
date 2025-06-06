@@ -1,66 +1,50 @@
 # HUD.gd
 extends CanvasLayer # Il nodo radice della scena HUD.tscn DEVE essere di tipo CanvasLayer
 
-# --- Riferimenti ai Nodi della UI ---
-# Assicurati che i percorsi ($NomeNodo/NomeFiglio) e i nomi dei nodi corrispondano
-# ESATTAMENTE (case-sensitive!) a quelli nella tua scena HUD.tscn.
-
-# Riferimento al Panel di sfondo delle statistiche
 @onready var statistiche_sfondo: Panel = $StatisticheSfondo
 
 # Riferimenti per la Salute Mentale
-@onready var salute_mentale_bar: TextureProgressBar = $SaluteMentaleBar
-@onready var cervello_icona: TextureRect = $CervelloIcona
+@onready var salute_mentale_bar: TextureProgressBar = $StatisticheSfondo/SaluteMentaleBar
 
 # Riferimenti per i Soldi
-@onready var soldi_icona: TextureRect = $StatisticheSfondo/SoldiIcona # L'icona della banconota
 @onready var soldi_quantita_label: Label = $StatisticheSfondo/SoldiIcona/QuantitaSoldi # Il testo dei soldi (figlio dell'icona)
 
 # Riferimento per l'Orologio e il Giorno della settimana
 @onready var orologio_label: Label = $StatisticheSfondo/OrologioLabel
 
-# Riferimento per l'Icona del Quaderno (se è fuori dal Panel StatisticheSfondo)
-@onready var quaderno_icona: TextureRect = $QuadernoIcona
-
 # Nuovo riferimento per la label di notifica dei messaggi temporanei (per il letto, eventi casuali, ecc.)
 @onready var notifica_messaggio_label: Label = $NotificaMessaggioLabel
 
+# Riferimento al nodo Autoload StatsManager
+@onready var stats_manager: Node = get_node("/root/StatsManager")
+
 
 func _ready():
-	# Connette i segnali dal nodo GameState (che è un Autoload/Singleton)
-	# alle funzioni di aggiornamento della UI in questo script.
-	GameState.salute_mentale_cambiata.connect(self._on_salute_mentale_cambiata)
-	GameState.soldi_cambiati.connect(self._on_soldi_cambiati)
-	GameState.tempo_cambiato.connect(self._on_tempo_cambiato)
-	GameState.evento_casuale_triggerato.connect(self._on_evento_casuale_triggerato)
 
-	# IMPORTANTE: Collega il nuovo segnale 'letto_pronto' di GameState.
-	# Questo segnale verrà emesso dal GameState quando il nodo Letto si sarà registrato.
-	GameState.letto_pronto.connect(self._on_letto_pronto) # <-- Questa è la riga chiave modificata
+	stats_manager.salute_mentale_cambiata.connect(self._on_salute_mentale_cambiata)
+	stats_manager.soldi_cambiati.connect(self._on_soldi_cambiati)
+	stats_manager.tempo_cambiato.connect(self._on_tempo_cambiato)
+	stats_manager.evento_casuale_triggerato.connect(self._on_evento_casuale_triggerato)
+	stats_manager.letto_pronto.connect(self._on_letto_pronto)
 
-
-	# --- Inizializza la UI con i valori attuali del GameState all'avvio della scena ---
-	# Questo assicura che la HUD mostri i dati corretti fin dall'inizio del gioco,
-	# sia che si tratti di una nuova partita che di un salvataggio caricato.
-	_on_salute_mentale_cambiata(GameState.salute_mentale)
-	_on_soldi_cambiati(GameState.soldi)
-	_on_tempo_cambiato(GameState.ora, GameState.minuti, GameState.nomi_giorni_settimana[GameState.indice_giorno_settimana])
+	_on_salute_mentale_cambiata(stats_manager.salute_mentale)
+	_on_soldi_cambiati(stats_manager.soldi)
+	_on_tempo_cambiato(stats_manager.ora, stats_manager.minuti, stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana])
 
 
-# --- Nuova funzione di callback per il segnale 'letto_pronto' del GameState ---
 func _on_letto_pronto(letto_node_ref: Area2D):
 	"""
-	Questa funzione viene chiamata dal GameState quando il nodo Letto si è registrato.
+	Questa funzione viene chiamata dallo StatsManager quando il nodo Letto si è registrato.
 	Qui colleghiamo il segnale 'letto_interagito' del Letto alla nostra funzione di callback.
 	"""
 	if is_instance_valid(letto_node_ref): # Controlla che il riferimento al nodo sia valido
 		letto_node_ref.connect("letto_interagito", _on_letto_interagito)
-		print("HUD: Segnale 'letto_interagito' collegato con successo tramite GameState.")
+		print("HUD: Segnale 'letto_interagito' collegato con successo tramite StatsManager.")
 	else:
-		print("HUD ERROR: Il riferimento al nodo Letto passato da GameState non è valido.")
+		print("HUD ERROR: Il riferimento al nodo Letto passato da StatsManager non è valido.")
 
 
-# --- Funzioni di Callback per i Segnali del GameState (esistenti) ---
+# --- Funzioni di Callback per i Segnali dello StatsManager (esistenti) ---
 
 func _on_salute_mentale_cambiata(nuova_salute: int):
 	"""
@@ -96,7 +80,7 @@ func _on_evento_casuale_triggerato(tipo_evento: String, messaggio: String, impor
 	notifica_messaggio_label.modulate.a = 1.0
 
 	var tween = create_tween()
-	tween.tween_interval(3.0) # <--- MODIFICATO: da .set_delay(3.0) a .tween_interval(3.0)
+	tween.tween_interval(3.0)
 	tween.tween_property(notifica_messaggio_label, "modulate:a", 0.0, 1.5)
 
 func _on_letto_interagito(messaggio: String, successo: bool):
@@ -108,5 +92,5 @@ func _on_letto_interagito(messaggio: String, successo: bool):
 	notifica_messaggio_label.modulate.a = 1.0
 
 	var tween = create_tween()
-	tween.tween_interval(2.0) # <--- MODIFICATO: da .set_delay(2.0) a .tween_interval(2.0)
+	tween.tween_interval(2.0)
 	tween.tween_property(notifica_messaggio_label, "modulate:a", 0.0, 1.0)

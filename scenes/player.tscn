@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ckethyc4i20vj"]
+[gd_scene load_steps=53 format=3 uid="uid://ckethyc4i20vj"]
 
 [ext_resource type="Script" uid="uid://bybd6xic8pkby" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dnvq20cdyscfc" path="res://assets/giocatore/Alex_idle_anim_16x16.png" id="2_dqkch"]
@@ -383,22 +383,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
-radius = 4.12311
-
-[node name="Player" type="Node2D"]
-
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
+top_level = true
 script = ExtResource("1_qhqgy")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, 10)
-zoom = Vector2(4, 4)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"idle_right"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 11)
-shape = SubResource("CircleShape2D_fjrip")

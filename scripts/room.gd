@@ -1,43 +1,121 @@
 extends Node2D
 
+# ---- COSTANTI ORARIO PER DORMIRE ----
+const ORA_MINIMA_PER_DORMIRE = 21
+const MINUTI_MINIMI_PER_DORMIRE = 30
+
+# ---- VARIABILI DI STATO ----
+var near_door = false
+var near_bed = false
+
+# ---- NODI ONREADY ----
+@onready var stats_manager = get_node("/root/StatsManager")
+@onready var letto_label: Label = $LettoLabel
+@onready var player: Node2D = $Player
+@onready var spawn_room := $SpawnRoom  # Marker2D vicino alla porta d’ingresso
+
 func _ready():
-	# Ottieni un riferimento al tuo TileMap
-	var tilemap = $TileMap
+	await get_tree().process_frame
 
-	# Ottieni un riferimento alla tua Camera2D.
-	# Il percorso è '$Player/Camera2D' perché il nodo Player è un figlio diretto
-	# del nodo Room, e Camera2D è un figlio diretto del nodo Player.
-	var cam = $Player/Camera2D
+	# --- Posiziona il player se torna dal corridoio ---
+	if Global.last_exit == "portaCasa":
+		player.global_position = spawn_room.global_position
 
-	# Assicurati che cam sia stato trovato, altrimenti stampa un errore e ferma l'esecuzione.
-	if cam == null:
-		print("Errore: Camera2D non trovata al percorso '$Player/Camera2D'. Controlla la tua scena.")
-		return # Esce dalla funzione _ready() se la camera non è stata trovata
+	# --- Calcolo limiti della mappa ---
+	var tilemap_root = $TileMap
+	var tile_size := Vector2i(0, 0)
+	var all_used_positions: Array[Vector2i] = []
 
-	# Ottieni il rettangolo utilizzato dal TileMap e la dimensione delle tile
-	var map_rect = tilemap.get_used_rect()
-	var tile_size = tilemap.tile_set.tile_size
+	for child in tilemap_root.get_children():
+		if child is TileMapLayer:
+			var layer := child
+			var used: Array[Vector2i] = layer.get_used_cells()
+			if used.size() > 0:
+				all_used_positions += used
+				if tile_size == Vector2i(0, 0):
+					tile_size = layer.tile_set.tile_size
+
+	if all_used_positions.is_empty():
+		print("❌ Nessuna cella trovata in nessun layer.")
+		return
+
+	var min_x = INF
+	var min_y = INF
+	var max_x = -INF
+	var max_y = -INF
+
+	for cell in all_used_positions:
+		min_x = min(min_x, cell.x)
+		min_y = min(min_y, cell.y)
+		max_x = max(max_x, cell.x)
+		max_y = max(max_y, cell.y)
+
+	var limit_left = min_x * tile_size.x
+	var limit_top = min_y * tile_size.y
+	var limit_right = (max_x + 1) * tile_size.x
+	var limit_bottom = (max_y + 1) * tile_size.y
+
+	print("📐 Limiti mappa combinati tra tutti i livelli:")
+	print("Left: ", limit_left)
+	print("Top: ", limit_top)
+	print("Right: ", limit_right)
+	print("Bottom: ", limit_bottom)
+
+	# --- Collega segnali per il letto (BedArea) ---
+	$BedArea.connect("body_entered", _on_bed_area_body_entered)
+	$BedArea.connect("body_exited", _on_bed_area_body_exited)
 
 
-	# Limiti orizzontali
-	cam.limit_left = map_rect.position.x * tile_size.x
-	cam.limit_right = (map_rect.position.x + map_rect.size.x) * tile_size.x
-
-	# Blocchiamo il movimento verticale forzando il valore Y
-	var camera_start_y = cam.global_position.y
-	cam.limit_top = camera_start_y
-	cam.limit_bottom = camera_start_y
-
-	cam.set_as_top_level(true)
-
-
-	if $Player: # Controlla che il nodo Player esista
-		cam.global_position = $Player.global_position
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	# Porta
+	if near_door and Input.is_action_just_pressed("interact"):
+		Global.last_exit = "portaCasa"
+		get_tree().change_scene_to_file("res://scenes/Corridoio.tscn")
 
-func _on_bed_area_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	# Letto
+	if near_bed and Input.is_action_just_pressed("interact"):
+		tenta_di_dormire()
+
+# ---- INTERAZIONE CON PORTA ----
+func _on_door_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		near_door = true
+
+func _on_door_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		near_door = false
+
+# ---- INTERAZIONE CON LETTO ----
+func _on_bed_area_body_entered(body: Node2D):
+	if body.name == "Player":
+		near_bed = true
+		letto_label.text = "Premi [SPAZIO] per dormire."
+		letto_label.visible = true
+
+func _on_bed_area_body_exited(body: Node2D):
+	if body.name == "Player":
+		near_bed = false
+		letto_label.visible = false
+
+# ---- LOGICA DORMIRE ----
+func tenta_di_dormire():
+	var ora = stats_manager.ora
+	var minuti = stats_manager.minuti
+
+	if ora > ORA_MINIMA_PER_DORMIRE or (ora == ORA_MINIMA_PER_DORMIRE and minuti >= MINUTI_MINIMI_PER_DORMIRE):
+		stats_manager.ora = 7
+		stats_manager.minuti = 0
+		stats_manager.giorno += 1
+		stats_manager.indice_giorno_settimana = (stats_manager.indice_giorno_settimana + 1) % 7
+
+		stats_manager.emit_signal("tempo_cambiato", stats_manager.ora, stats_manager.minuti, stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana])
+		stats_manager.save_game()
+
+		letto_label.text = "Hai dormito bene! Nuovo giorno: %s Giorno %d" % [
+			stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana],
+			stats_manager.giorno
+		]
+	else:
+		letto_label.text = "È troppo presto per andare a dormire! Riprova dopo le %02d:%02d." % [ORA_MINIMA_PER_DORMIRE, MINUTI_MINIMI_PER_DORMIRE]
+
+	letto_label.visible = true

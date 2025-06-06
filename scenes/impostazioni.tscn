@@ -1,0 +1,168 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkfmqf0xsqaab"]
+
+[ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_erc3u"]
+[ext_resource type="Script" uid="uid://duiibg0gbrxry" path="res://scripts/scriptImpostazioni/impostazioni.gd" id="1_pnjoy"]
+[ext_resource type="Script" uid="uid://dpyhngepdlwtx" path="res://scripts/scriptImpostazioni/audio_control.gd" id="2_pnjoy"]
+[ext_resource type="Script" uid="uid://c50ba7ymec1mv" path="res://scripts/scriptImpostazioni/fullscreen_control.gd" id="3_u3wuc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yvfd"]
+bg_color = Color(0.301961, 0.168627, 0.109804, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7yvfd"]
+color = Color(0.956863, 0.647059, 0.266667, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dfy5j"]
+thickness = 6
+
+[node name="Opzioni" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7yvfd")
+script = ExtResource("1_pnjoy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 385.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("1_erc3u")
+theme_override_font_sizes/font_size = 35
+text = "
+OPZIONI"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 88.0
+offset_top = 97.0
+offset_right = -854.0
+offset_bottom = 170.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("1_erc3u")
+theme_override_font_sizes/font_size = 35
+text = "
+Musica"
+horizontal_alignment = 1
+
+[node name="AudioControl" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 350.0
+offset_top = 135.0
+offset_right = -376.0
+offset_bottom = -474.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_7yvfd")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_dfy5j")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_pnjoy")
+audio_bus_name = "Music"
+
+[node name="FullScreenControl" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 322.0
+offset_right = 485.0
+offset_bottom = 365.0
+theme_override_fonts/font = ExtResource("1_erc3u")
+theme_override_font_sizes/font_size = 25
+text = "Schermo intero
+"
+script = ExtResource("3_u3wuc")
+
+[node name="Indietro" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 0
+offset_left = 839.0
+offset_top = 582.0
+offset_right = 1127.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("1_erc3u")
+theme_override_font_sizes/font_size = 35
+text = "INDIETRO"
+
+[node name="SoundLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 72.0
+offset_top = 163.0
+offset_right = -870.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("1_erc3u")
+theme_override_font_sizes/font_size = 35
+text = "
+Suoni"
+horizontal_alignment = 1
+
+[node name="SoundControl" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 350.0
+offset_top = 204.0
+offset_right = -376.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_7yvfd")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_dfy5j")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_pnjoy")
+audio_bus_name = "SFX"
+
+[node name="Modalita" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 91.0
+offset_top = 233.0
+offset_right = -221.0
+offset_bottom = 306.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("1_erc3u")
+theme_override_font_sizes/font_size = 35
+text = "
+Modalità visualizzazione"
+horizontal_alignment = 1
+
+[node name="CreditiButtons" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 25)
+layout_mode = 0
+offset_left = 81.0
+offset_top = 581.0
+offset_right = 201.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("1_erc3u")
+theme_override_font_sizes/font_size = 15
+text = "CREDITI"
+
+[connection signal="value_changed" from="AudioControl" to="AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="FullScreenControl" to="FullScreenControl" method="_on_toggled"]
+[connection signal="mouse_entered" from="Indietro" to="." method="_on_indietro_mouse_entered"]
+[connection signal="pressed" from="Indietro" to="." method="_on_indietro_pressed"]
+[connection signal="value_changed" from="SoundControl" to="SoundControl" method="_on_value_changed"]
+[connection signal="mouse_entered" from="CreditiButtons" to="." method="_on_crediti_buttons_mouse_entered"]
+[connection signal="pressed" from="CreditiButtons" to="." method="_on_crediti_buttons_pressed"]
