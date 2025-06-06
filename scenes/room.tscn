@@ -3706,7 +3706,7 @@ size = Vector2(58, 278)
 size = Vector2(64, 277)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dynfe"]
-size = Vector2(43, 90)
+size = Vector2(43, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tk5fv"]
 size = Vector2(41, 51.5)
@@ -3817,7 +3817,7 @@ top_level = true
 light_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
-position = Vector2(-247.5, -19)
+position = Vector2(-247.5, -23.5)
 shape = SubResource("RectangleShape2D_dynfe")
 
 [node name="BedArea" type="Area2D" parent="."]
@@ -3828,7 +3828,7 @@ position = Vector2(218.5, 27.25)
 shape = SubResource("RectangleShape2D_tk5fv")
 
 [node name="SpawnRoom" type="Marker2D" parent="."]
-position = Vector2(-248, 23)
+position = Vector2(-248, 16)
 
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]
