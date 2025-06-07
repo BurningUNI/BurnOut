@@ -3716,7 +3716,6 @@ y_sort_enabled = true
 script = ExtResource("1_eom3m")
 
 [node name="HUD" parent="." instance=ExtResource("2_tk5fv")]
-visible = false
 offset = Vector2(0, -0.5)
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, -0.5)
