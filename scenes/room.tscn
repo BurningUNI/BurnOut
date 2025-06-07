@@ -3716,6 +3716,7 @@ y_sort_enabled = true
 script = ExtResource("1_eom3m")
 
 [node name="HUD" parent="." instance=ExtResource("2_tk5fv")]
+visible = false
 offset = Vector2(0, -0.5)
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, -0.5)
@@ -3773,16 +3774,6 @@ position_smoothing_enabled = true
 position = Vector2(0, 23)
 shape = SubResource("CircleShape2D_w68ji")
 
-[node name="LettoLabel" type="Label" parent="."]
-top_level = true
-offset_left = 68.0
-offset_top = 123.0
-offset_right = 324.0
-offset_bottom = 146.0
-theme_override_fonts/font = ExtResource("13_w68ji")
-theme_override_font_sizes/font_size = 5
-horizontal_alignment = 1
-
 [node name="WallTop" type="StaticBody2D" parent="."]
 
 [node name="Walls" type="Node2D" parent="."]
@@ -3819,12 +3810,31 @@ light_mask = 2
 position = Vector2(-247.5, -23.5)
 shape = SubResource("RectangleShape2D_dynfe")
 
+[node name="InterazioneLabel" type="Label" parent="DoorArea"]
+top_level = true
+offset_left = -121.0
+offset_top = 114.0
+offset_right = -34.0
+offset_bottom = 137.0
+theme_override_fonts/font = ExtResource("13_w68ji")
+theme_override_font_sizes/font_size = 5
+
 [node name="BedArea" type="Area2D" parent="."]
 top_level = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BedArea"]
 position = Vector2(218.5, 27.25)
 shape = SubResource("RectangleShape2D_tk5fv")
+
+[node name="LettoLabel" type="Label" parent="BedArea"]
+top_level = true
+offset_left = 68.0
+offset_top = 123.0
+offset_right = 324.0
+offset_bottom = 146.0
+theme_override_fonts/font = ExtResource("13_w68ji")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
 
 [node name="SpawnRoom" type="Marker2D" parent="."]
 position = Vector2(-248, 16)

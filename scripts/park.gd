@@ -54,7 +54,7 @@ func calcola_limiti_mappa():
 func _on_porta_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		near_door = true
-		label.text = "Premi [SPAZIO] per entrare nella stanza"
+		label.text = "Premi [SPAZIO] per tornare a casa"
 		label.visible = true
 
 func _on_porta_area_body_exited(body: Node2D) -> void:

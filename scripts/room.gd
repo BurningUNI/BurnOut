@@ -10,9 +10,10 @@ var near_bed = false
 
 # ---- NODI ONREADY ----
 @onready var stats_manager = get_node("/root/StatsManager")
-@onready var letto_label: Label = $LettoLabel
+@onready var letto_label: Label = $BedArea/LettoLabel
 @onready var player: Node2D = $Player
-@onready var spawn_room := $SpawnRoom  # Punto vicino alla porta
+@onready var spawn_room := $SpawnRoom
+@onready var label_interazione: Label = $DoorArea/InterazioneLabel
 
 func _ready():
 	await get_tree().process_frame
@@ -21,7 +22,78 @@ func _ready():
 	if Global.last_exit == "portaCasa" or Global.last_exit == "park":
 		player.global_position = spawn_room.global_position
 
-	# --- Calcolo limiti della mappa ---
+	calcola_limiti_mappa()
+
+	# --- Collega segnali per area letto ---
+	$BedArea.connect("body_entered", _on_bed_area_body_entered)
+	$BedArea.connect("body_exited", _on_bed_area_body_exited)
+
+	# --- Collega segnali per area porta ---
+	$DoorArea.connect("body_entered", _on_door_area_body_entered)
+	$DoorArea.connect("body_exited", _on_door_area_body_exited)
+
+	label_interazione.visible = false
+	letto_label.visible = false
+
+func _process(delta: float) -> void:
+	# Porta
+	if near_door and Input.is_action_just_pressed("interact"):
+		Global.last_exit = "portaCasa"
+		get_tree().change_scene_to_file("res://scenes/Corridoio.tscn")
+
+	# Letto
+	if near_bed and Input.is_action_just_pressed("interact"):
+		tenta_di_dormire()
+
+# ---- INTERAZIONE CON PORTA ----
+func _on_door_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		near_door = true
+		label_interazione.text = "Premi [SPAZIO] per uscire di casa"
+		label_interazione.visible = true
+
+func _on_door_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		near_door = false
+		label_interazione.visible = false
+
+# ---- INTERAZIONE CON LETTO ----
+func _on_bed_area_body_entered(body: Node2D):
+	if body.name == "Player":
+		near_bed = true
+		letto_label.text = "Premi [SPAZIO] per dormire."
+		letto_label.visible = true
+
+func _on_bed_area_body_exited(body: Node2D):
+	if body.name == "Player":
+		near_bed = false
+		letto_label.visible = false
+
+# ---- LOGICA DORMIRE ----
+func tenta_di_dormire():
+	var ora = stats_manager.ora
+	var minuti = stats_manager.minuti
+
+	if ora > ORA_MINIMA_PER_DORMIRE or (ora == ORA_MINIMA_PER_DORMIRE and minuti >= MINUTI_MINIMI_PER_DORMIRE):
+		stats_manager.ora = 7
+		stats_manager.minuti = 0
+		stats_manager.giorno += 1
+		stats_manager.indice_giorno_settimana = (stats_manager.indice_giorno_settimana + 1) % 7
+
+		stats_manager.emit_signal("tempo_cambiato", stats_manager.ora, stats_manager.minuti, stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana])
+		stats_manager.save_game()
+
+		letto_label.text = "Hai dormito bene! Nuovo giorno: %s Giorno %d" % [
+			stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana],
+			stats_manager.giorno
+		]
+	else:
+		letto_label.text = "È troppo presto per andare a dormire! Riprova dopo le %02d:%02d." % [ORA_MINIMA_PER_DORMIRE, MINUTI_MINIMI_PER_DORMIRE]
+
+	letto_label.visible = true
+
+# ---- CALCOLO LIMITI MAPPA ----
+func calcola_limiti_mappa():
 	var tilemap_root = $TileMap
 	var tile_size := Vector2i(0, 0)
 	var all_used_positions: Array[Vector2i] = []
@@ -60,61 +132,3 @@ func _ready():
 	print("Top: ", limit_top)
 	print("Right: ", limit_right)
 	print("Bottom: ", limit_bottom)
-
-	# --- Collega segnali per il letto (BedArea) ---
-	$BedArea.connect("body_entered", _on_bed_area_body_entered)
-	$BedArea.connect("body_exited", _on_bed_area_body_exited)
-
-func _process(delta: float) -> void:
-	# Porta
-	if near_door and Input.is_action_just_pressed("interact"):
-		Global.last_exit = "portaCasa"
-		get_tree().change_scene_to_file("res://scenes/Corridoio.tscn")
-
-	# Letto
-	if near_bed and Input.is_action_just_pressed("interact"):
-		tenta_di_dormire()
-
-# ---- INTERAZIONE CON PORTA ----
-func _on_door_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		near_door = true
-
-func _on_door_area_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
-		near_door = false
-
-# ---- INTERAZIONE CON LETTO ----
-func _on_bed_area_body_entered(body: Node2D):
-	if body.name == "Player":
-		near_bed = true
-		letto_label.text = "Premi [SPAZIO] per dormire."
-		letto_label.visible = true
-
-func _on_bed_area_body_exited(body: Node2D):
-	if body.name == "Player":
-		near_bed = false
-		letto_label.visible = false
-
-# ---- LOGICA DORMIRE ----
-func tenta_di_dormire():
-	var ora = stats_manager.ora
-	var minuti = stats_manager.minuti
-
-	if ora > ORA_MINIMA_PER_DORMIRE or (ora == ORA_MINIMA_PER_DORMIRE and minuti >= MINUTI_MINIMI_PER_DORMIRE):
-		stats_manager.ora = 7
-		stats_manager.minuti = 0
-		stats_manager.giorno += 1
-		stats_manager.indice_giorno_settimana = (stats_manager.indice_giorno_settimana + 1) % 7
-
-		stats_manager.emit_signal("tempo_cambiato", stats_manager.ora, stats_manager.minuti, stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana])
-		stats_manager.save_game()
-
-		letto_label.text = "Hai dormito bene! Nuovo giorno: %s Giorno %d" % [
-			stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana],
-			stats_manager.giorno
-		]
-	else:
-		letto_label.text = "È troppo presto per andare a dormire! Riprova dopo le %02d:%02d." % [ORA_MINIMA_PER_DORMIRE, MINUTI_MINIMI_PER_DORMIRE]
-
-	letto_label.visible = true

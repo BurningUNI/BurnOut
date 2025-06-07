@@ -95,7 +95,6 @@ func _on_soldi_cambiati(nuovi_soldi: int) -> void:
 func _on_tempo_cambiato(nuova_ora: int, nuovi_minuti: int, nuovo_giorno_nome: String) -> void:
 	var tempo_formattato = "%02d:%02d" % [nuova_ora, nuovi_minuti]
 	orologio_label.text = "%s %s" % [nuovo_giorno_nome, tempo_formattato]
-	print("Tempo aggiornato: ", orologio_label.text)
 
 	_check_phone_popup(nuova_ora, nuovi_minuti)
 
