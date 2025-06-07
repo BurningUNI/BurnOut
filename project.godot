@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bornout"
-run/main_scene="uid://dxrsr3qq0x5lp"
+run/main_scene="uid://bkvil0ul2suqf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

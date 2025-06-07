@@ -3716,7 +3716,6 @@ y_sort_enabled = true
 script = ExtResource("1_eom3m")
 
 [node name="HUD" parent="." instance=ExtResource("2_tk5fv")]
-visible = false
 offset = Vector2(0, -0.5)
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, -0.5)
@@ -3838,6 +3837,26 @@ horizontal_alignment = 1
 
 [node name="SpawnRoom" type="Marker2D" parent="."]
 position = Vector2(-248, 16)
+
+[node name="SceltaUscita" type="Popup" parent="."]
+size = Vector2i(143, 100)
+visible = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SceltaUscita"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="SceltaUscita/VBoxContainer"]
+layout_mode = 2
+text = "Dove vuoi andare?"
+
+[node name="ButtonCorridoio" type="Button" parent="SceltaUscita/VBoxContainer"]
+layout_mode = 2
+text = "Vai in università"
+
+[node name="ButtonPark" type="Button" parent="SceltaUscita/VBoxContainer"]
+layout_mode = 2
+text = "Vai al parco"
 
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]

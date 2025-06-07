@@ -14,34 +14,36 @@ var near_bed = false
 @onready var player: Node2D = $Player
 @onready var spawn_room := $SpawnRoom
 @onready var label_interazione: Label = $DoorArea/InterazioneLabel
+@onready var popup = $SceltaUscita
+@onready var button_corridoio = $SceltaUscita/VBoxContainer/ButtonCorridoio
+@onready var button_park = $SceltaUscita/VBoxContainer/ButtonPark
 
 func _ready():
 	await get_tree().process_frame
 
-	# --- Posiziona il player se torna dal corridoio o dal parco ---
 	if Global.last_exit == "portaCasa" or Global.last_exit == "park":
 		player.global_position = spawn_room.global_position
 
 	calcola_limiti_mappa()
 
-	# --- Collega segnali per area letto ---
 	$BedArea.connect("body_entered", _on_bed_area_body_entered)
 	$BedArea.connect("body_exited", _on_bed_area_body_exited)
-
-	# --- Collega segnali per area porta ---
 	$DoorArea.connect("body_entered", _on_door_area_body_entered)
 	$DoorArea.connect("body_exited", _on_door_area_body_exited)
 
 	label_interazione.visible = false
 	letto_label.visible = false
+	popup.hide()
 
-func _process(delta: float) -> void:
-	# Porta
-	if near_door and Input.is_action_just_pressed("interact"):
-		Global.last_exit = "portaCasa"
-		get_tree().change_scene_to_file("res://scenes/Corridoio.tscn")
+	button_corridoio.text = "Vai al Corridoio"
+	button_park.text = "Vai al parco"
+	button_corridoio.pressed.connect(_vai_al_corridoio)
+	button_park.pressed.connect(_vai_al_parco)
 
-	# Letto
+func _process(_delta: float) -> void:
+	if near_door and Input.is_action_just_pressed("interact") and not popup.visible:
+		popup.popup_centered()
+
 	if near_bed and Input.is_action_just_pressed("interact"):
 		tenta_di_dormire()
 
@@ -56,6 +58,15 @@ func _on_door_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		near_door = false
 		label_interazione.visible = false
+		popup.hide()
+
+func _vai_al_corridoio():
+	Global.last_exit = "portaCasa"
+	get_tree().change_scene_to_file("res://scenes/Corridoio.tscn")
+
+func _vai_al_parco():
+	Global.last_exit = "park"
+	get_tree().change_scene_to_file("res://scenes/Park.tscn")
 
 # ---- INTERAZIONE CON LETTO ----
 func _on_bed_area_body_entered(body: Node2D):
@@ -69,7 +80,6 @@ func _on_bed_area_body_exited(body: Node2D):
 		near_bed = false
 		letto_label.visible = false
 
-# ---- LOGICA DORMIRE ----
 func tenta_di_dormire():
 	var ora = stats_manager.ora
 	var minuti = stats_manager.minuti

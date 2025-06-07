@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bkvil0ul2suqf"]
+[gd_scene load_steps=22 format=3 uid="uid://bkvil0ul2suqf"]
 
 [ext_resource type="Texture2D" uid="uid://1h32blf6ahfy" path="res://assets/casa/Objects/Decoration.png" id="1_7mjl7"]
 [ext_resource type="Script" uid="uid://bkmtj5eymdmng" path="res://scripts/park.gd" id="1_v6yfi"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://de4g5cg0pd713" path="res://assets/casa/Cloud Tileset.png" id="5_r2x14"]
 [ext_resource type="PackedScene" uid="uid://ckethyc4i20vj" path="res://scenes/player.tscn" id="7_v4b5n"]
 [ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="8_v4b5n"]
+[ext_resource type="PackedScene" uid="uid://bkwkee3ck8nss" path="res://scenes/ui/hud.tscn" id="9_cowak"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmuhq"]
 texture = ExtResource("1_7mjl7")
@@ -430,7 +431,7 @@ animation = &"walk_down"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -3)
-zoom = Vector2(3.7, 2.9)
+zoom = Vector2(2.9, 2.9)
 limit_left = 96
 limit_top = 144
 limit_right = 688
@@ -477,17 +478,32 @@ position = Vector2(377.5, 271.5)
 shape = SubResource("RectangleShape2D_o58if")
 
 [node name="InterazioneLabel" type="Label" parent="."]
-visible = false
 top_level = true
 z_index = 10
-offset_left = 300.0
-offset_top = 333.0
-offset_right = 384.0
-offset_bottom = 356.0
+offset_left = 302.0
+offset_top = 332.0
+offset_right = 332.0
+offset_bottom = 342.0
 theme_override_fonts/font = ExtResource("8_v4b5n")
 theme_override_font_sizes/font_size = 5
+
+[node name="SpawnRoom" type="Marker2D" parent="."]
+position = Vector2(378, 271)
+
+[node name="HUD" parent="." instance=ExtResource("9_cowak")]
+visible = false
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+
+[node name="StatisticheSfondo" parent="HUD" index="0"]
+offset_top = -4.0
+offset_bottom = 232.0
+
+[node name="PhonePopup" parent="HUD" index="2"]
+visible = false
 
 [connection signal="body_entered" from="portaArea" to="." method="_on_porta_area_body_entered"]
 [connection signal="body_exited" from="portaArea" to="." method="_on_porta_area_body_exited"]
 
 [editable path="Player"]
+[editable path="HUD"]

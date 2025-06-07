@@ -1,14 +1,14 @@
+Marker2D
 Label
 Button
+VBoxContainer
+Popup
 Panel
 Control
 TextureButton
 CollisionShape2D
 Area2D
 Camera2D
-Marker2D
 CanvasLayer
 StaticBody2D
 CharacterBody2D
-ColorRect
-VBoxContainer
