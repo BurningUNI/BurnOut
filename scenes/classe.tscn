@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0naevhyupmjv"]
+[gd_scene load_steps=22 format=3 uid="uid://d0naevhyupmjv"]
 
 [ext_resource type="Texture2D" uid="uid://igvq6yd8fhv7" path="res://assets/scuola/A4.png" id="1_c5bre"]
 [ext_resource type="Script" uid="uid://b4oh323e0ysf" path="res://scripts/classe.gd" id="1_d8tu8"]
+[ext_resource type="PackedScene" uid="uid://bkwkee3ck8nss" path="res://scenes/ui/hud.tscn" id="2_5kxqk"]
 [ext_resource type="Texture2D" uid="uid://c0mrarpvssha2" path="res://assets/scuola/A5.png" id="2_8s5db"]
 [ext_resource type="Texture2D" uid="uid://degqn82gm6e5n" path="res://assets/scuola/Inside_C.png" id="3_d8tu8"]
 [ext_resource type="Texture2D" uid="uid://comf1qitkjkmj" path="res://assets/scuola/Inside_D.png" id="4_ooelu"]
@@ -3824,6 +3825,13 @@ size = Vector2(52, 90)
 [node name="Classe" type="Node2D"]
 script = ExtResource("1_d8tu8")
 
+[node name="HUD" parent="." instance=ExtResource("2_5kxqk")]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+
+[node name="PhonePopup" parent="HUD" index="2"]
+visible = false
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4854f")
 format = 2
@@ -3903,4 +3911,5 @@ horizontal_alignment = 1
 [connection signal="body_entered" from="areaPorta" to="." method="_on_area_porta_body_entered"]
 [connection signal="body_exited" from="areaPorta" to="." method="_on_area_porta_body_exited"]
 
+[editable path="HUD"]
 [editable path="Player"]

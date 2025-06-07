@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkwkee3ck8nss"]
+[gd_scene load_steps=10 format=3 uid="uid://bkwkee3ck8nss"]
 
 [ext_resource type="Script" uid="uid://b4sagxu3kfgtj" path="res://scripts/hud.gd" id="1_8qguk"]
 [ext_resource type="Texture2D" uid="uid://dblu7rn05exue" path="res://assets/icons/Rectangle 1.png" id="1_bo48s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c6866mrkuq1cs" path="res://assets/icons/icons8-soldi-50.png" id="5_136eg"]
 [ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="6_oj5la"]
 [ext_resource type="Texture2D" uid="uid://ced03621wvl2q" path="res://scenes/oggetti/ChatGPT_Image_7_giu_2025_12_07_25-removebg-preview.png" id="7_gss2c"]
+[ext_resource type="Texture2D" uid="uid://c04e21qf0oj5k" path="res://assets/icons/icons8-impostazioni-128 (1).png" id="8_h022r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5la"]
 bg_color = Color(0.196078, 0.0980392, 0, 1)
@@ -102,58 +103,90 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.5
-offset_top = -41.0
-offset_right = 20.5
+offset_left = -19.0
+offset_top = -506.0
+offset_right = 1268.0
+offset_bottom = 563.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_vertical = 4
 
 [node name="PhoneImage" type="TextureRect" parent="PhonePopup"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = -8.365
-anchor_right = 12.263
-offset_left = 169.5
-offset_top = -66.035
-offset_right = 166.717
-offset_bottom = 91.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 32.0
+offset_right = -165.0
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("7_gss2c")
 
 [node name="MessageLabel" type="Label" parent="PhonePopup"]
 layout_mode = 0
-offset_left = 340.5
-offset_top = -202.0
-offset_right = 545.5
-offset_bottom = -110.0
+offset_left = 386.0
+offset_top = 405.0
+offset_right = 755.0
+offset_bottom = 595.0
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 20
 text = "Buongiorno, sta iniziando la 
-tua prima lezione. Premi
-accetta e recati davanti alla 
-porta per andare a lezione, 
-altrimenti schiaccia rifiuta"
+tua prima lezione. Recati davanti alla 
+porta per andare a lezione"
 
-[node name="AcceptButton" type="Button" parent="PhonePopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 7.909
-anchor_top = -8.624
-anchor_right = 12.552
-anchor_bottom = 1.0
-offset_left = 23.231
-offset_top = 266.584
-offset_right = -100.132
-offset_bottom = -96.0
-text = "Accetta"
-
-[node name="RejectButton" type="Button" parent="PhonePopup"]
+[node name="ChiudiBottone" type="Button" parent="PhonePopup"]
 layout_mode = 0
-offset_left = 442.5
-offset_top = -86.0
-offset_right = 501.5
-offset_bottom = -55.0
-text = "Rifiuta"
+offset_left = 501.0
+offset_top = 607.0
+offset_right = 637.0
+offset_bottom = 655.0
+text = "Chiudi"
 
-[connection signal="pressed" from="PhonePopup/AcceptButton" to="." method="_on_accept_button_pressed"]
-[connection signal="pressed" from="PhonePopup/RejectButton" to="." method="_on_reject_button_pressed"]
+[node name="ImpostazioniButton" type="TextureButton" parent="."]
+offset_left = 2123.0
+offset_top = 13.0
+offset_right = 2251.0
+offset_bottom = 141.0
+texture_normal = ExtResource("8_h022r")
+
+[node name="MenuPause" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 57.0
+offset_top = 37.0
+offset_right = 2417.0
+offset_bottom = 1600.0
+
+[node name="Panel" type="Panel" parent="MenuPause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RiprendiButton" type="Button" parent="MenuPause/Panel"]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 395.0
+offset_right = 1481.0
+offset_bottom = 611.0
+text = "Riprendi"
+
+[node name="TornaAlMenuButton" type="Button" parent="MenuPause/Panel"]
+layout_mode = 0
+offset_left = 898.0
+offset_top = 766.0
+offset_right = 1468.0
+offset_bottom = 979.0
+text = "Torna al menù"
+
+[connection signal="pressed" from="PhonePopup/ChiudiBottone" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="ImpostazioniButton" to="." method="_on_impostazioni_button_pressed"]
+[connection signal="pressed" from="MenuPause/Panel/RiprendiButton" to="." method="_on_riprendi_button_pressed"]
+[connection signal="pressed" from="MenuPause/Panel/TornaAlMenuButton" to="." method="_on_torna_al_menu_button_pressed"]
