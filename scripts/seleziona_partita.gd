@@ -94,11 +94,13 @@ func _on_nuova_partita_button_mouse_entered() -> void:
 func _on_continua_partita_button_pressed() -> void:
 	MusicController.play_click_sound()
 	# --- AGGIORNAMENTO: Carica il gioco tramite stats_manager ---
-	if stats_manager.load_game():
-		get_tree().change_scene_to_packed(game_scene)
+	var scene_path = StatsManager.current_scene_path
+	print("Tentativo di caricare la scena:", scene_path)  # 👈 Debug
+	
+	if ResourceLoader.exists(scene_path):
+		get_tree().change_scene_to_file(scene_path)
 	else:
-		print("Errore critico nel caricamento della partita salvata. Non è stato possibile caricare il gioco.")
-		continua_partita_button.disabled = true
+		print("Errore: scena salvata non trovata:", scene_path)
 
 
 func _on_continua_partita_button_mouse_entered() -> void:

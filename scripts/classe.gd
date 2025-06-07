@@ -4,11 +4,15 @@ var near_door = false
 @onready var label := $InterazioneLabel
 
 func _ready() -> void:
-	pass
+	StatsManager.current_scene_path = get_tree().current_scene.scene_file_path
 
 func _process(delta: float) -> void:
 	if near_door and Input.is_action_just_pressed("interact"):
+		Global.last_exit = "classe"
+		StatsManager.current_scene_path = "res://scenes/Corridoio.tscn"
+		StatsManager.save_game()
 		get_tree().change_scene_to_file("res://scenes/Corridoio.tscn")
+
 
 func _on_area_porta_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

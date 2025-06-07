@@ -10,7 +10,11 @@ var near_door = false
 
 func _ready() -> void:
 	await get_tree().process_frame
-	
+
+	# 👇 Salva correttamente la scena attuale all'avvio (debug)
+	StatsManager.current_scene_path = get_tree().current_scene.scene_file_path
+	print("🏞️ Park loaded - current_scene_path impostato a:", StatsManager.current_scene_path)
+
 	if Global.last_exit == "park":
 		player.global_position = spawn_room.global_position
 
@@ -20,6 +24,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if near_door and Input.is_action_just_pressed("interact"):
 		Global.last_exit = "park"
+
+		# 👇 Imposta la scena verso cui stai andando PRIMA di salvarla
+		StatsManager.current_scene_path = "res://scenes/room.tscn"
+		StatsManager.save_game()
+
 		get_tree().change_scene_to_file("res://scenes/room.tscn")
 
 func calcola_limiti_mappa():

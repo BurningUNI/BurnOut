@@ -20,7 +20,7 @@ var near_bed = false
 
 func _ready():
 	await get_tree().process_frame
-
+	StatsManager.current_scene_path = get_tree().current_scene.scene_file_path
 	if Global.last_exit == "portaCasa" or Global.last_exit == "park":
 		player.global_position = spawn_room.global_position
 
@@ -62,10 +62,14 @@ func _on_door_area_body_exited(body: Node2D) -> void:
 
 func _vai_al_corridoio():
 	Global.last_exit = "portaCasa"
+	StatsManager.current_scene_path = "res://scenes/Corridoio.tscn"
+	StatsManager.save_game()
 	get_tree().change_scene_to_file("res://scenes/Corridoio.tscn")
 
 func _vai_al_parco():
 	Global.last_exit = "park"
+	StatsManager.current_scene_path = "res://scenes/Park.tscn"
+	StatsManager.save_game()
 	get_tree().change_scene_to_file("res://scenes/Park.tscn")
 
 # ---- INTERAZIONE CON LETTO ----

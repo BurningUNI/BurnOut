@@ -12,6 +12,8 @@ var is_first_boot = true
 var nomi_giorni_settimana = ["DOM", "LUN", "MAR", "MER", "GIO", "VEN", "SAB"]
 var indice_giorno_settimana = 0
 
+#ultima scena posizione
+var current_scene_path = "res://scenes/room.tscn"  # valore di default
 # --- Segnali ---
 signal salute_mentale_cambiata(nuova_salute)
 signal soldi_cambiati(nuovi_soldi)
@@ -31,9 +33,11 @@ func _ready():
 	add_child(timer_eventi_settimanali)
 
 	if load_game():
-		print("StatsManager: Gioco caricato con successo!")
+		print("✅ StatsManager: Gioco caricato con successo!")
+		print("📁 Scena da caricare al prossimo avvio:", current_scene_path)
 	else:
-		print("StatsManager: Nessun salvataggio trovato o errore nel caricamento, inizio nuova partita.")
+		print("⚠️ StatsManager: Nessun salvataggio trovato o errore nel caricamento, inizio nuova partita.")
+		print("📁 Scena di default (nessun salvataggio):", current_scene_path)
 
 	# Timer Tempo (1 minuto gioco = 1 secondo reale)
 	timer_tempo.wait_time = 1.0
@@ -137,8 +141,10 @@ func save_game() -> Error:
 		"minuti": minuti,
 		"giorno": giorno,
 		"indice_giorno_settimana": indice_giorno_settimana,
-		"is_first_boot": false
+		"is_first_boot": false,
+		"current_scene_path": current_scene_path  # 👈 nuova riga
 	}
+
 	var file = FileAccess.open(SAVE_GAME_PATH, FileAccess.WRITE)
 	if file == null:
 		print("StatsManager: Errore nell'apertura del file per scrittura: ", FileAccess.get_open_error())
@@ -147,6 +153,7 @@ func save_game() -> Error:
 	file.store_string(JSON.stringify(save_dict, "\t"))
 	file.close()
 	print("StatsManager: Gioco salvato con successo in: ", SAVE_GAME_PATH)
+	print("StatsManager: Scena salvata:", current_scene_path)  # debug
 	return OK
 
 func load_game() -> bool:
@@ -176,7 +183,9 @@ func load_game() -> bool:
 	giorno = int(json_parsed.get("giorno", 1))
 	indice_giorno_settimana = int(json_parsed.get("indice_giorno_settimana", 0))
 	is_first_boot = bool(json_parsed.get("is_first_boot", true))
+	current_scene_path = json_parsed.get("current_scene_path", "res://scenes/room.tscn")  # 👈 nuova riga
 
+	print("StatsManager: Scena caricata:", current_scene_path)  # debug
 	return true
 
 func _notification(what):
