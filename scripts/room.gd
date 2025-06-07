@@ -12,13 +12,13 @@ var near_bed = false
 @onready var stats_manager = get_node("/root/StatsManager")
 @onready var letto_label: Label = $LettoLabel
 @onready var player: Node2D = $Player
-@onready var spawn_room := $SpawnRoom  # Marker2D vicino alla porta d’ingresso
+@onready var spawn_room := $SpawnRoom  # Punto vicino alla porta
 
 func _ready():
 	await get_tree().process_frame
 
-	# --- Posiziona il player se torna dal corridoio ---
-	if Global.last_exit == "portaCasa":
+	# --- Posiziona il player se torna dal corridoio o dal parco ---
+	if Global.last_exit == "portaCasa" or Global.last_exit == "park":
 		player.global_position = spawn_room.global_position
 
 	# --- Calcolo limiti della mappa ---
@@ -64,7 +64,6 @@ func _ready():
 	# --- Collega segnali per il letto (BedArea) ---
 	$BedArea.connect("body_entered", _on_bed_area_body_entered)
 	$BedArea.connect("body_exited", _on_bed_area_body_exited)
-
 
 func _process(delta: float) -> void:
 	# Porta

@@ -1,11 +1,8 @@
-Button
 Label
-TextureRect
-Control
 CollisionShape2D
+Area2D
 Camera2D
 Marker2D
-Area2D
 CanvasLayer
 StaticBody2D
 CharacterBody2D
