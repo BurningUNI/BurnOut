@@ -1,21 +1,34 @@
 extends Node2D
 
 @onready var tilemap = $TileMap
+@onready var label = $InterazioneLabel
+@onready var porta_area = $portaArea
+@onready var player: Node2D = $Player
+@onready var spawn_room := $SpawnRoom  # Vicino all'ingresso del park
+
+var near_door = false
 
 func _ready() -> void:
+	await get_tree().process_frame
+	
+	if Global.last_exit == "park":
+		player.global_position = spawn_room.global_position
+
 	calcola_limiti_mappa()
+	label.visible = false
 
 func _process(delta: float) -> void:
-	pass
+	if near_door and Input.is_action_just_pressed("interact"):
+		Global.last_exit = "park"
+		get_tree().change_scene_to_file("res://scenes/room.tscn")
 
 func calcola_limiti_mappa():
-	var used_cells = tilemap.get_used_cells(0)  # Layer 0
+	var used_cells = tilemap.get_used_cells(0)
 	if used_cells.is_empty():
 		print("❌ Nessuna cella trovata nella TileMap.")
 		return
 
 	var tile_size = tilemap.tile_set.tile_size
-
 	var min_x = INF
 	var min_y = INF
 	var max_x = -INF
@@ -37,3 +50,14 @@ func calcola_limiti_mappa():
 	print("Top: ", limit_top)
 	print("Right: ", limit_right)
 	print("Bottom: ", limit_bottom)
+
+func _on_porta_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		near_door = true
+		label.text = "Premi [SPAZIO] per entrare nella stanza"
+		label.visible = true
+
+func _on_porta_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		near_door = false
+		label.visible = false

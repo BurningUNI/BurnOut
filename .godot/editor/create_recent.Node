@@ -1,8 +1,8 @@
+Label
 CollisionShape2D
+Area2D
 Camera2D
 Marker2D
-Label
-Area2D
 CanvasLayer
 StaticBody2D
 CharacterBody2D
