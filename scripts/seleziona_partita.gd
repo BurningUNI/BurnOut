@@ -31,6 +31,8 @@ func update_stats_labels():
 			giorno_label.text = "Giorno: %d" % save_data.giorno
 			soldi_label.text = "Soldi: %d" % save_data.soldi
 			salute_mentale_label.text = "Salute Mentale: %d%%" % save_data.salute_mentale
+			# Non visualizziamo qui gli stati di studio, ma se volessi potresti aggiungerli
+			# ad esempio: "Analisi: %d%%" % save_data.statoAnalisi
 		else:
 			giorno_label.text = "Nessun salvataggio valido"
 			soldi_label.text = ""
@@ -44,6 +46,8 @@ class SaveData: # Questa classe interna è usata solo per la lettura temporanea,
 	var giorno: int
 	var soldi: int
 	var salute_mentale: int
+	var statoAnalisi: int # Aggiunto per la lettura temporanea
+	var statoProgrammazione: int # Aggiunto per la lettura temporanea
 
 func load_save_data() -> SaveData:
 	# --- AGGIORNAMENTO: Usa stats_manager.SAVE_GAME_PATH ---
@@ -68,6 +72,8 @@ func load_save_data() -> SaveData:
 	save_data.giorno = int(json_parsed.get("giorno", 1))
 	save_data.soldi = int(json_parsed.get("soldi", 500))
 	save_data.salute_mentale = int(json_parsed.get("salute_mentale", 100))
+	save_data.statoAnalisi = int(json_parsed.get("statoAnalisi", 0)) # Carica lo stato di Analisi
+	save_data.statoProgrammazione = int(json_parsed.get("statoProgrammazione", 0)) # Carica lo stato di Programmazione
 	return save_data
 
 
@@ -75,13 +81,17 @@ func _on_nuova_partita_button_pressed() -> void:
 	MusicController.play_click_sound()
 	# --- AGGIORNAMENTO: Inizializza le statistiche tramite stats_manager ---
 	stats_manager.salute_mentale = 100
-	stats_manager.soldi = 500
+	stats_manager.soldi = 100
 	stats_manager.ora = 11
 	stats_manager.minuti = 30
 	stats_manager.giorno = 1
 	stats_manager.indice_giorno_settimana = 0
+	stats_manager.statoAnalisi = 0         # RESETTA STATO ANALISI
+	stats_manager.statoProgrammazione = 0  # RESETTA STATO PROGRAMMAZIONE
 
 	# --- AGGIORNAMENTO: Salva il gioco tramite stats_manager ---
+	# Questo salvataggio inizializza un nuovo file di salvataggio con i valori predefiniti,
+	# inclusi gli stati di studio resettati.
 	stats_manager.save_game()
 
 	get_tree().change_scene_to_packed(intro_scene)
@@ -94,13 +104,18 @@ func _on_nuova_partita_button_mouse_entered() -> void:
 func _on_continua_partita_button_pressed() -> void:
 	MusicController.play_click_sound()
 	# --- AGGIORNAMENTO: Carica il gioco tramite stats_manager ---
-	var scene_path = StatsManager.current_scene_path
-	print("Tentativo di caricare la scena:", scene_path)  # 👈 Debug
+	# Il stats_manager.load_game() verrà chiamato automaticamente in _ready() del StatsManager
+	# prima che la scena venga caricata.
+	var scene_path = stats_manager.current_scene_path # Usa stats_manager per ottenere il percorso
+	print("Tentativo di caricare la scena:", scene_path) # 👈 Debug
 	
 	if ResourceLoader.exists(scene_path):
 		get_tree().change_scene_to_file(scene_path)
 	else:
-		print("Errore: scena salvata non trovata:", scene_path)
+		print("Errore: scena salvata non trovata o percorso non valido:", scene_path)
+		# Se la scena non esiste, potresti voler caricare la scena di default (es. room.tscn)
+		# o mostrare un messaggio di errore all'utente.
+		get_tree().change_scene_to_packed(game_scene) # Carica room.tscn come fallback
 
 
 func _on_continua_partita_button_mouse_entered() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bqi37yu6hf1u"]
+[gd_scene load_steps=32 format=4 uid="uid://bqi37yu6hf1u"]
 
 [ext_resource type="Texture2D" uid="uid://ch3hlesnkkjlh" path="res://assets/casa/house/bathroom.png" id="1_36trf"]
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_eom3m"]
@@ -3711,6 +3711,9 @@ size = Vector2(43, 81)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tk5fv"]
 size = Vector2(41, 51.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrn5"]
+size = Vector2(52, 38)
+
 [node name="Room" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_eom3m")
@@ -3858,7 +3861,49 @@ text = "Vai in università"
 layout_mode = 2
 text = "Vai al parco"
 
+[node name="DeskArea" type="Area2D" parent="."]
+top_level = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeskArea"]
+position = Vector2(133, 34)
+shape = SubResource("RectangleShape2D_vfrn5")
+
+[node name="InterazioneLabel" type="Label" parent="DeskArea"]
+offset_left = 76.0
+offset_top = 113.0
+offset_right = 211.0
+offset_bottom = 136.0
+
+[node name="PopupStudio" type="Popup" parent="DeskArea"]
+size = Vector2i(219, 107)
+visible = true
+
+[node name="studioLabel" type="Label" parent="DeskArea/PopupStudio"]
+offset_right = 99.0
+offset_bottom = 23.0
+text = "Scegli la materia da studiare"
+
+[node name="AnalisiBottone" type="Button" parent="DeskArea/PopupStudio"]
+offset_left = 1.0
+offset_top = 33.0
+offset_right = 218.0
+offset_bottom = 56.0
+text = "Analisi"
+
+[node name="ProgrammazioneBottone" type="Button" parent="DeskArea/PopupStudio"]
+offset_left = 1.0
+offset_top = 76.0
+offset_right = 218.0
+offset_bottom = 99.0
+text = "Programmazione"
+
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]
+[connection signal="body_entered" from="BedArea" to="." method="_on_bed_area_body_entered"]
+[connection signal="body_exited" from="BedArea" to="." method="_on_bed_area_body_exited"]
+[connection signal="body_entered" from="DeskArea" to="." method="_on_desk_area_body_entered"]
+[connection signal="body_exited" from="DeskArea" to="." method="_on_desk_area_body_exited"]
+[connection signal="pressed" from="DeskArea/PopupStudio/AnalisiBottone" to="." method="_on_analisi_bottone_pressed"]
+[connection signal="pressed" from="DeskArea/PopupStudio/ProgrammazioneBottone" to="." method="_on_programmazione_bottone_pressed"]
 
 [editable path="Player"]
