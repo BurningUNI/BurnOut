@@ -426,7 +426,7 @@ SPEED = 27.0
 [node name="AnimatedSprite2D" parent="Player" index="0"]
 y_sort_enabled = true
 position = Vector2(-1, 4)
-scale = Vector2(0.7, 0.7)
+scale = Vector2(1.1, 1.1)
 animation = &"walk_down"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -438,7 +438,7 @@ limit_right = 688
 limit_bottom = 368
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-1, 9)
+position = Vector2(-1, 14)
 shape = SubResource("CircleShape2D_v6yfi")
 
 [node name="Walls" type="Node2D" parent="."]
@@ -497,9 +497,6 @@ transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 [node name="StatisticheSfondo" parent="HUD" index="0"]
 offset_top = -4.0
 offset_bottom = 232.0
-
-[node name="PhonePopup" parent="HUD" index="2"]
-visible = false
 
 [connection signal="body_entered" from="portaArea" to="." method="_on_porta_area_body_entered"]
 [connection signal="body_exited" from="portaArea" to="." method="_on_porta_area_body_exited"]

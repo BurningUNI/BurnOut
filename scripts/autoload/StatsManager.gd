@@ -1,3 +1,4 @@
+#StatsManager
 extends Node
 
 # --- Variabili di Stato del Gioco ---
