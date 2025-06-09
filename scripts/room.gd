@@ -164,9 +164,8 @@ func tenta_di_dormire():
 	var sleep_successful = false
 	var message = ""
 
-	# Condizione 1: Si può dormire la sera (dalle 21:30 alle 23:59)
+	# Condizione 1: dormi di sera (es. 21:30 - 23:59)
 	if (ora > ORA_MINIMA_PER_DORMIRE or (ora == ORA_MINIMA_PER_DORMIRE and minuti >= MINUTI_MINIMI_PER_DORMIRE)) and ora <= 23:
-		# Se si dorme in questo intervallo, si avanza al giorno successivo.
 		stats_manager.giorno += 1
 		stats_manager.indice_giorno_settimana = (stats_manager.indice_giorno_settimana + 1) % 7
 		sleep_successful = true
@@ -174,34 +173,40 @@ func tenta_di_dormire():
 			stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana],
 			stats_manager.giorno
 		]
-	# Condizione 2: Si può dormire al mattino presto (dalle 00:00 fino a ORA_FINE_PERIODO_SONNO_MATTINO_ESCLUSA (es. 06:59))
+
+	# Condizione 2: dormi dopo mezzanotte (es. 00:00 - 06:59)
 	elif ora >= ORA_INIZIO_BLOCCO_NOTTURNO_STUDIO and ora < ORA_FINE_PERIODO_SONNO_MATTINO_ESCLUSA:
-		# Se si dorme in questo intervallo, il giorno è già passato (mezzanotte),
-		# quindi non si incrementa di nuovo il contatore del giorno.
 		sleep_successful = true
-		message = "Hai dormito bene! Continua il %s Giorno %d" % [ # Messaggio leggermente diverso
+		message = "Hai dormito bene! Continua il %s Giorno %d" % [
 			stats_manager.nomi_giorni_settimana[stats_manager.indice_giorno_settimana],
 			stats_manager.giorno
 		]
 	else:
-		# Se non si rientra in nessuna delle fasce orarie di sonno valide
 		message = "Non è l'orario giusto per dormire. Puoi dormire dalle %02d:%02d" % [
 			ORA_MINIMA_PER_DORMIRE, MINUTI_MINIMI_PER_DORMIRE
 		]
 
 	if sleep_successful:
-		# Imposta l'ora a 7:00 del mattino (ora di risveglio fissa)
 		stats_manager.ora = 7
 		stats_manager.minuti = 0
-		
-		# Recupera salute mentale dopo aver dormito
 		stats_manager.aumenta_salute_mentale(RECUPERO_SALUTE_MENTALE_DORMIRE)
 		message += "\nHai recuperato %d punti di salute mentale!" % RECUPERO_SALUTE_MENTALE_DORMIRE
-
 		stats_manager.save_game()
-	
+
+		# 🟨 Se è il giorno dell'esame (15), decidi cosa fare
+		if stats_manager.giorno == 15:
+			if stats_manager.statoAnalisi >= 60 and stats_manager.statoProgrammazione >= 60:
+				stats_manager.current_scene_path = "res://Scenes/dialogo.tscn"
+				get_tree().change_scene_to_file("res://Scenes/dialogo.tscn")
+				return
+			else:
+				stats_manager.current_scene_path = "res://Scenes/gameOver.tscn"
+				get_tree().change_scene_to_file("res://Scenes/gameOver.tscn")
+				return
+
 	letto_label.text = message
 	letto_label.visible = true
+
 
 # ---- GESTIONE INTERAZIONE DI STUDIO ----
 func handle_study_interaction():

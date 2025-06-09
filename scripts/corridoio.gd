@@ -1,4 +1,3 @@
-#Corridoio.gd
 extends Node2D
 
 # ---- COSTANTI ORARI LEZIONI ----
@@ -18,12 +17,18 @@ const MINUTI_PROGRAMMAZIONE_FINE = 0
 const GIORNO_LUNEDI = 1
 const GIORNO_VENERDI = 5
 
-var current_porta := "" # Memorizza quale porta il giocatore sta interagiendo
+var current_porta := "" # Memorizza quale porta o interazione il giocatore sta interagiendo
+
+# --- VARIABILI DISTRIBUTORE ---
+const COSTO_BEVANDA_DISTRIBUTORE: int = 5
+const SALUTE_MENTALE_BOOST_DISTRIBUTORE: int = 3 # Ho usato 3 come da tua richiesta
 
 @onready var label := $InterazioneLabel # Etichetta per mostrare il messaggio di interazione
 @onready var player := $Player # Nodo del giocatore
 @onready var spawn_porta_casa := $SpawnPortaCasa # Punto di spawn vicino alla porta di casa
 @onready var spawn_porta_classe := $SpawnPortaClasse # Punto di spawn vicino alla porta della classe
+@onready var distributore_area := $DistributoreArea2D # Assicurati che questo sia il nome del tuo nodo Area2D del distributore
+
 
 func _ready() -> void:
 	# Registra la scena corrente nel StatsManager per il salvataggio
@@ -40,7 +45,7 @@ func _ready() -> void:
 			pass # Posizione di default se non si proviene da una porta nota
 
 func _process(_delta: float) -> void:
-	# Controlla se il giocatore preme il tasto "interact" (SPAZIO) e se è vicino a una porta
+	# Controlla se il giocatore preme il tasto "interact" (SPAZIO) e se è vicino a una porta o al distributore
 	if Input.is_action_just_pressed("interact") and current_porta != "":
 		match current_porta:
 			"portaCasa":
@@ -59,6 +64,16 @@ func _process(_delta: float) -> void:
 				else:
 					# Se non ci sono lezioni, non fare nulla (il messaggio è già visualizzato)
 					pass
+			"distributore":
+				# LOGICA PER IL DISTRIBUTORE
+				if StatsManager.sottrai_soldi(COSTO_BEVANDA_DISTRIBUTORE):
+					StatsManager.aumenta_salute_mentale(SALUTE_MENTALE_BOOST_DISTRIBUTORE)
+					label.text = "Hai preso una bevanda! Salute Mentale +" + str(SALUTE_MENTALE_BOOST_DISTRIBUTORE)
+					# Potresti aggiungere un suono o un'animazione qui
+				else:
+					label.text = "Soldi insufficienti! Servono " + str(COSTO_BEVANDA_DISTRIBUTORE) + " euro."
+				label.visible = true # Assicurati che il messaggio sia visibile dopo l'interazione
+
 
 # Funzione che viene chiamata quando il giocatore entra nell'area della porta di casa
 func _on_porta_casa_body_entered(body: Node2D) -> void:
@@ -99,7 +114,7 @@ func is_lesson_active() -> String:
 	var current_ora = StatsManager.ora # Ora attuale dal StatsManager
 	var current_minuti = StatsManager.minuti # Minuti attuali dal StatsManager
 	# Indice del giorno della settimana (0=DOM, 1=LUN, ..., 6=SAB)
-	var current_day_index = StatsManager.indice_giorno_settimana 
+	var current_day_index = StatsManager.indice_giorno_settimana
 
 	# Le lezioni si tengono solo nei giorni feriali (LUN a VEN)
 	if current_day_index < GIORNO_LUNEDI or current_day_index > GIORNO_VENERDI:
@@ -123,3 +138,17 @@ func is_lesson_active() -> String:
 		return "programmazione" # Restituisce il nome della lezione
 
 	return "none" # Nessuna lezione attiva in questo momento
+
+
+# FUNZIONE PER IL DISTRIBUTORE: Quando il giocatore entra nell'area del distributore
+func _on_distributore_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		current_porta = "distributore"
+		label.text = "Premi SPAZIO per una bevanda (€" + str(COSTO_BEVANDA_DISTRIBUTORE) + ")"
+		label.visible = true
+
+# FUNZIONE PER IL DISTRIBUTORE: Quando il giocatore esce dall'area del distributore
+func _on_distributore_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		current_porta = ""
+		label.visible = false

@@ -97,7 +97,7 @@ func check_risposta(risposta_scelta:String) -> void:
 # ───────────  FINE ESAME  ───────────
 func gestisci_fine_esame() -> void:
 	if esami_coda.is_empty():
-		get_tree().change_scene_to_file("res://scenes/room.tscn")
+		get_tree().change_scene_to_file("res://scenes/winscreen.tscn")
 	else:
 		var prossimo = esami_coda[0]
 		dialogo_label.text  = "Hai superato " + esame_corrente + "! Passiamo a " + prossimo + "..."

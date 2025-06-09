@@ -12,15 +12,17 @@ var track_library := {
 	"room": preload("res://assets/musiche/room_music.mp3"),
 	"park": preload("res://assets/musiche/park_music.mp3"),
 	"main_menu": preload("res://assets/musiche/room_music.mp3"),
+	"gameover": preload("res://assets/musiche/gameover.mp3"),
+	"win": preload("res://assets/musiche/winsound.mp3"),
 	"school": preload("res://assets/musiche/school_music.mp3")
 }
 
-func play_music(stream: AudioStream, track_name: String) -> void:
+func play_music(stream: AudioStream, track_name: String, loop: bool = true) -> void:
 	if current_track_name != track_name or current_stream != stream:
 		if stream is AudioStream:
 			var new_stream = stream.duplicate()
 			if new_stream is AudioStream:
-				new_stream.loop = true
+				new_stream.loop = loop
 				musica_background_menu.stream = new_stream
 				musica_background_menu.bus = "Music"
 				musica_background_menu.play()

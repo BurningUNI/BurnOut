@@ -25,6 +25,7 @@ MusicController="*res://autoloads/MusicController.tscn"
 SettingsManager="*res://scripts/autoload/SettingsManager.gd"
 StatsManager="*res://scripts/autoload/StatsManager.gd"
 Global="*res://scripts/autoload/Global.gd"
+GameManager="*res://scripts/autoload/GameManager.gd"
 
 [display]
 

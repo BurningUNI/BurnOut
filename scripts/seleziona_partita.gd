@@ -79,23 +79,8 @@ func load_save_data() -> SaveData:
 
 func _on_nuova_partita_button_pressed() -> void:
 	MusicController.play_click_sound()
-	# --- AGGIORNAMENTO: Inizializza le statistiche tramite stats_manager ---
-	stats_manager.salute_mentale = 100
-	stats_manager.soldi = 100
-	stats_manager.ora = 11
-	stats_manager.minuti = 30
-	stats_manager.giorno = 1
-	stats_manager.indice_giorno_settimana = 0
-	stats_manager.statoAnalisi = 0         # RESETTA STATO ANALISI
-	stats_manager.statoProgrammazione = 0  # RESETTA STATO PROGRAMMAZIONE
-
-	# --- AGGIORNAMENTO: Salva il gioco tramite stats_manager ---
-	# Questo salvataggio inizializza un nuovo file di salvataggio con i valori predefiniti,
-	# inclusi gli stati di studio resettati.
-	stats_manager.save_game()
-
+	stats_manager.resetta_statistiche()
 	get_tree().change_scene_to_packed(intro_scene)
-
 
 func _on_nuova_partita_button_mouse_entered() -> void:
 	MusicController.play_hover_sound()
