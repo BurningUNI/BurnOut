@@ -421,6 +421,7 @@ top_level = false
 z_index = 1
 y_sort_enabled = true
 position = Vector2(379, 260)
+scale = Vector2(1.1, 1.1)
 SPEED = 27.0
 
 [node name="AnimatedSprite2D" parent="Player" index="0"]
