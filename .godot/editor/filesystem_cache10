@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1749403900
+::res://::1749457775
 audio_bus_layout.tres::AudioBusLayout/AudioBusLayout::5532054582637774075::1747908752::0::1::::<><><>0<>0<><>::
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::1661076940099872337::1747830050::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1747830050::0::1::::<><><>0<>0<><>::
@@ -113,14 +113,16 @@ sprites.png::CompressedTexture2D/CompressedTexture2D::3831991623605923164::17484
 ::res://assets/lettera/::1749137376
 Adobe Express - file.png::CompressedTexture2D/CompressedTexture2D::4257129370565238448::1748336284::1748336626::1::::<><><>0<>0<>e6b56b789c6c369150ae6ade5c03dd70<>res://.godot/imported/Adobe Express - file.png-f4a91f1e920bfbf9a8c8355ba4be6dd7.ctex::
 background_scrivania.jpg::CompressedTexture2D/CompressedTexture2D::6911755758757531491::1748336284::1748336626::1::::<><><>0<>0<>e15e35302720bc06b895cf4dda404db3<>res://.godot/imported/background_scrivania.jpg-a876b826b6b17463d0c70c4cd15e173f.ctex::
-::res://assets/musiche/::1749137376
+::res://assets/musiche/::1749458749
 2-cherry-cute-bgm-271158.mp3::AudioStreamMP3/AudioStreamMP3::2473777919116188250::1747830050::1747908788::1::::<><><>0<>0<>c23cd6c23d2590d793b7058fb91712a1<>res://.godot/imported/2-cherry-cute-bgm-271158.mp3-fc01262f15036d5189ea413495074356.mp3str::
 game-start-6104.mp3::AudioStreamMP3/AudioStreamMP3::7399270654631219827::1747830050::1747908788::1::::<><><>0<>0<>f230d1d244609f3d487552d0baaf7652<>res://.godot/imported/game-start-6104.mp3-e1874c5249fef1bc406d96e598c3afb3.mp3str::
 i-love-my-8-bit-game-console-301272.mp3::AudioStreamMP3/AudioStreamMP3::3791049792342416503::1747830050::1747908788::1::::<><><>0<>0<>32b1d3e29c0427078b533db365bcbac5<>res://.godot/imported/i-love-my-8-bit-game-console-301272.mp3-b2cb999ecadaea93ac855dbd5592961a.mp3str::
 minimal-pop-click-ui-1-198301.mp3::AudioStreamMP3/AudioStreamMP3::5493711464400303667::1747830050::1747908788::1::::<><><>0<>0<>9fff95353703249d68de3100c406b3b4<>res://.godot/imported/minimal-pop-click-ui-1-198301.mp3-890345e93b83f3b4fed67fc351f435ea.mp3str::
 mouse-click-331781.mp3::AudioStreamMP3/AudioStreamMP3::679185975686930326::1747830050::1747908788::1::::<><><>0<>0<>8395017ebb246a4ac5897daec9691fb8<>res://.godot/imported/mouse-click-331781.mp3-54b4cfa890f743c768917c0fceaa8d74.mp3str::
-puzzle-game-bright-casual-video-game-music-249202.mp3::AudioStreamMP3/AudioStreamMP3::5787168222384497986::1747830050::1747908788::1::::<><><>0<>0<>d20b9c8091c07a12721e63846f2a7df6<>res://.godot/imported/puzzle-game-bright-casual-video-game-music-249202.mp3-c11acfbdfcecf0384e431041395945fe.mp3str::
+park_music.mp3::AudioStreamMP3::6389309165031944969::1749457170::1749457775::1::::<><><>0<>0<>f63674cf4fc298a73bb4bb3f13d56d38<>res://.godot/imported/park_music.mp3-a3c45db1097a6655bc305459a7347326.mp3str::
 puzzle-game-loop-bright-casual-video-game-music-249201.mp3::AudioStreamMP3/AudioStreamMP3::3471216840064495125::1747830050::1747908788::1::::<><><>0<>0<>889ecc5b48c2a5c5701866498743f241<>res://.godot/imported/puzzle-game-loop-bright-casual-video-game-music-249201.mp3-b860fcc630e22389221c43f444eea5be.mp3str::
+room_music.mp3::AudioStreamMP3/AudioStreamMP3::5787168222384497986::1747830050::1749457761::1::::<><><>0<>0<>9a8b8617e0f35ac97c93243376c8baff<>res://.godot/imported/room_music.mp3-a6e3b228b1d15b7c32a274845e540a16.mp3str::
+school_music.mp3::AudioStreamMP3::419751484890220990::1749458749::1749458749::1::::<><><>0<>0<>fb8257646273695f2d4d5eb2eb0fae3e<>res://.godot/imported/school_music.mp3-3c9052e4b9e2dd88659d3ce632555903.mp3str::
 ::res://assets/scuola/::1749137376
 A4.png::CompressedTexture2D/CompressedTexture2D::575202310658962974::1748529338::1748529340::1::::<><><>0<>0<>2f0daffbf57a169d0b0cb8dfd161ed92<>res://.godot/imported/A4.png-520299a449966e41ba11da88c1dd5b24.ctex::
 A5.png::CompressedTexture2D/CompressedTexture2D::6553368097310691143::1748529338::1748529340::1::::<><><>0<>0<>d88fa03fa16eb2b5abec57bb60c08366<>res://.godot/imported/A5.png-390b4240d30c025504c5b4cec686efec.ctex::
@@ -128,8 +130,8 @@ Inside_C.png::CompressedTexture2D/CompressedTexture2D::7453400154630965073::1748
 Inside_D.png::CompressedTexture2D/CompressedTexture2D::5780608580581772177::1748529338::1748529340::1::::<><><>0<>0<>b08d2c298a1e174fecdc5bcaf98f450b<>res://.godot/imported/Inside_D.png-94f64e8237199e83d4dd14cc1b99d02b.ctex::
 Inside_E.png::CompressedTexture2D/CompressedTexture2D::6387455023093650604::1748529338::1748529340::1::::<><><>0<>0<>45bba7df3881681af534dba512186dd4<>res://.godot/imported/Inside_E.png-392d181b560f91e8387a9000a2b7b735.ctex::
 PROFESSORE-removebg-preview.png::CompressedTexture2D/CompressedTexture2D::2270062968186576015::1748959720::1748959948::1::::<><><>0<>0<>8ecb2206d0fa2997ad18bb9e04b41b04<>res://.godot/imported/PROFESSORE-removebg-preview.png-5a69a17b5c650bd664760cb757cd388c.ctex::
-::res://autoloads/::1749209916
-MusicController.tscn::PackedScene/PackedScene::2247406683440260560::1749209916::0::1::::<><><>0<>0<><>::uid://qtlo2ifqurcb::::res://scripts/scriptImpostazioni/musicController.gd
+::res://autoloads/::1749458048
+MusicController.tscn::PackedScene::2247406683440260560::1749458048::0::1::::<><><>0<>0<><>::uid://qtlo2ifqurcb::::res://scripts/scriptImpostazioni/musicController.gd
 ::res://floor godot/::1749137376
 ReadMe.txt::TextFile/TextFile::-1::1747909240::0::1::::<><><>0<>0<><>::
 ::res://floor godot/Brick tiles/::1749137376
@@ -187,44 +189,44 @@ sprite_06.png::CompressedTexture2D/CompressedTexture2D::4406386646255736885::174
 sprite_07.png::CompressedTexture2D/CompressedTexture2D::5237633123321736605::1747909240::1747911664::1::::<><><>0<>0<>1d1647557470b7666547cecc90e36712<>res://.godot/imported/sprite_07.png-5db1135d9c657b084f3398efd1f7bb84.ctex::
 sprite_08.png::CompressedTexture2D/CompressedTexture2D::2727952508611490131::1747909240::1747911664::1::::<><><>0<>0<>371a1adb1b9f3bff3416dd92ab9a1239<>res://.godot/imported/sprite_08.png-8a3d1a32332dd5b846313209367354e9.ctex::
 sprite_09.png::CompressedTexture2D/CompressedTexture2D::7583883872997013817::1747909240::1747911664::1::::<><><>0<>0<>8723df04f6126da40867859b3452775a<>res://.godot/imported/sprite_09.png-3eaa3caea587ea090b9cdab6fb54c396.ctex::
-::res://scenes/::1749403499
-classe.tscn::PackedScene::8940828310930274031::1749403499::0::1::::<><><>0<>0<><>::uid://igvq6yd8fhv7::::res://assets/scuola/A4.png<>uid://b4oh323e0ysf::::res://scripts/classe.gd<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn<>uid://c0mrarpvssha2::::res://assets/scuola/A5.png<>uid://degqn82gm6e5n::::res://assets/scuola/Inside_C.png<>uid://comf1qitkjkmj::::res://assets/scuola/Inside_D.png<>uid://cxaeplms5qc1q::::res://assets/scuola/Inside_E.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
-corridoio.tscn::PackedScene::2219973988958035798::1749403499::0::1::::<><><>0<>0<><>::uid://cvk1lnmbk8q6r::::res://scripts/corridoio.gd<>uid://igvq6yd8fhv7::::res://assets/scuola/A4.png<>uid://c0mrarpvssha2::::res://assets/scuola/A5.png<>uid://degqn82gm6e5n::::res://assets/scuola/Inside_C.png<>uid://comf1qitkjkmj::::res://assets/scuola/Inside_D.png<>uid://cxaeplms5qc1q::::res://assets/scuola/Inside_E.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn
+::res://scenes/::1749458048
+classe.tscn::PackedScene::8940828310930274031::1749458047::0::1::::<><><>0<>0<><>::uid://igvq6yd8fhv7::::res://assets/scuola/A4.png<>uid://b4oh323e0ysf::::res://scripts/classe.gd<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn<>uid://c0mrarpvssha2::::res://assets/scuola/A5.png<>uid://degqn82gm6e5n::::res://assets/scuola/Inside_C.png<>uid://comf1qitkjkmj::::res://assets/scuola/Inside_D.png<>uid://cxaeplms5qc1q::::res://assets/scuola/Inside_E.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
+corridoio.tscn::PackedScene::2219973988958035798::1749458048::0::1::::<><><>0<>0<><>::uid://cvk1lnmbk8q6r::::res://scripts/corridoio.gd<>uid://igvq6yd8fhv7::::res://assets/scuola/A4.png<>uid://c0mrarpvssha2::::res://assets/scuola/A5.png<>uid://degqn82gm6e5n::::res://assets/scuola/Inside_C.png<>uid://comf1qitkjkmj::::res://assets/scuola/Inside_D.png<>uid://cxaeplms5qc1q::::res://assets/scuola/Inside_E.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn
 credits.tscn::PackedScene/PackedScene::4677887882748726961::1748336126::0::1::::<><><>0<>0<><>::uid://c8i6if0t43656::::res://scripts/credits.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
-dialogo.tscn::PackedScene::797157955740012701::1749403499::0::1::::<><><>0<>0<><>::uid://ca1vek52qsak5::::res://scripts/dialogo.gd<>uid://dpm3f1hqlka45::::res://scenes/oggetti/bg.jpg<>uid://bphxowngkji68::::res://scenes/oggetti/PROFESSORE-removebg-preview.png
-impostazioni.tscn::PackedScene::7872229855152160577::1749403498::0::1::::<><><>0<>0<><>::uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://duiibg0gbrxry::::res://scripts/scriptImpostazioni/impostazioni.gd<>uid://dpyhngepdlwtx::::res://scripts/scriptImpostazioni/audio_control.gd<>uid://c50ba7ymec1mv::::res://scripts/scriptImpostazioni/fullscreen_control.gd
+dialogo.tscn::PackedScene::797157955740012701::1749458048::0::1::::<><><>0<>0<><>::uid://ca1vek52qsak5::::res://scripts/dialogo.gd<>uid://dpm3f1hqlka45::::res://scenes/oggetti/bg.jpg<>uid://bphxowngkji68::::res://scenes/oggetti/PROFESSORE-removebg-preview.png
+impostazioni.tscn::PackedScene::7872229855152160577::1749458047::0::1::::<><><>0<>0<><>::uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://duiibg0gbrxry::::res://scripts/scriptImpostazioni/impostazioni.gd<>uid://dpyhngepdlwtx::::res://scripts/scriptImpostazioni/audio_control.gd<>uid://c50ba7ymec1mv::::res://scripts/scriptImpostazioni/fullscreen_control.gd
 letteraIniziale.tscn::PackedScene/PackedScene::7195509833813789137::1749303283::0::1::::<><><>0<>0<><>::uid://c5qduwkhv4ffn::::res://assets/lettera/background_scrivania.jpg<>uid://nn04tfs3rfkf::::res://scripts/letterainiziale.gd<>uid://b1wgkfmof4j5y::::res://assets/lettera/Adobe Express - file.png<>uid://cw7chrnd4s6gj::::res://scripts/testo_lettera.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
-mainmenu.tscn::PackedScene::8809824637071232709::1749403498::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
-park.tscn::PackedScene::3132167777100209557::1749403498::0::1::::<><><>0<>0<><>::uid://1h32blf6ahfy::::res://assets/casa/Objects/Decoration.png<>uid://bkmtj5eymdmng::::res://scripts/park.gd<>uid://dqd84kkdd4g54::::res://assets/casa/Objects/Objects.png<>uid://dwbme0x2yghef::::res://assets/casa/Objects/Tileset.png<>uid://dbkvpsm2f5w1k::::res://assets/casa/PixelNatureDemo/DemoObjects16x16.png<>uid://de4g5cg0pd713::::res://assets/casa/Cloud Tileset.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn
-player.tscn::PackedScene::5484154703182083247::1749403499::0::1::::<><><>0<>0<><>::uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
-room.tscn::PackedScene::103756344647384900::1749403498::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>res://scripts/room.gd<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://cisfe3277pdj8::::res://assets/casa/modular_pixel_houses/windows.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
-seleziona_partita.tscn::PackedScene::3729895933416942589::1749403498::0::1::::<><><>0<>0<><>::uid://b52bnifdy8fjs::::res://scripts/seleziona_partita.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
+mainmenu.tscn::PackedScene::8809824637071232709::1749458047::0::1::::<><><>0<>0<><>::uid://bqrxau7b4ssup::::res://scripts/mainmenu.gd<>uid://cbchj4isndob4::::res://assets/backgrounds/background_menu.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
+park.tscn::PackedScene::3132167777100209557::1749458047::0::1::::<><><>0<>0<><>::uid://1h32blf6ahfy::::res://assets/casa/Objects/Decoration.png<>uid://bkmtj5eymdmng::::res://scripts/park.gd<>uid://dqd84kkdd4g54::::res://assets/casa/Objects/Objects.png<>uid://dwbme0x2yghef::::res://assets/casa/Objects/Tileset.png<>uid://dbkvpsm2f5w1k::::res://assets/casa/PixelNatureDemo/DemoObjects16x16.png<>uid://de4g5cg0pd713::::res://assets/casa/Cloud Tileset.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn
+player.tscn::PackedScene::5484154703182083247::1749458047::0::1::::<><><>0<>0<><>::uid://bybd6xic8pkby::::res://scripts/player.gd<>uid://dnvq20cdyscfc::::res://assets/giocatore/Alex_idle_anim_16x16.png<>uid://xovkbsdl6qc1::::res://assets/giocatore/Alex_run_16x16.png
+room.tscn::PackedScene::103756344647384900::1749458047::0::1::::<><><>0<>0<><>::uid://ch3hlesnkkjlh::::res://assets/casa/house/bathroom.png<>res://scripts/room.gd<>uid://chcivf4wpstwk::::res://assets/casa/house/Floor.png<>uid://bkwkee3ck8nss::::res://scenes/ui/hud.tscn<>uid://dv2848ebhr8qs::::res://assets/casa/house/kitchen furniture.png<>uid://mmd0owrab2rx::::res://assets/casa/house/livingroom furniture.png<>uid://ccdpt4pif2vpa::::res://assets/casa/house/walls.png<>uid://ds31tu3cn0421::::res://assets/casa/house/bedroom  furniture.png<>uid://cisfe3277pdj8::::res://assets/casa/modular_pixel_houses/windows.png<>uid://cgql1mklkf8c4::::res://assets/casa/modular_pixel_houses/InteriorTilesLITE.png<>uid://dehcg1qk1r3ti::::res://assets/casa/modular_pixel_houses/doors.png<>uid://ckethyc4i20vj::::res://scenes/player.tscn<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
+seleziona_partita.tscn::PackedScene::3729895933416942589::1749458047::0::1::::<><><>0<>0<><>::uid://b52bnifdy8fjs::::res://scripts/seleziona_partita.gd<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf
 ::res://scenes/oggetti/::1749291750
 bg.jpg::CompressedTexture2D/CompressedTexture2D::8238577620628286904::1748959720::1748959744::1::::<><><>0<>0<>227c0e66723b370f59cfeb95e0258e50<>res://.godot/imported/bg.jpg-44d9f8074b7d5de1b8dbfb32bd76fb80.ctex::
 ChatGPT_Image_7_giu_2025_12_07_25-removebg-preview.png::CompressedTexture2D/CompressedTexture2D::5061359473394142810::1749291734::1749291750::1::::<><><>0<>0<>2a33284441ec8a25ef3a37a7f1618dae<>res://.godot/imported/ChatGPT_Image_7_giu_2025_12_07_25-removebg-preview.png-06a5f93f62b8846119447b50a9280b5c.ctex::
 Gemini_Generated_Image_17w9yg17w9yg17w9-removebg-preview (1).png::CompressedTexture2D/CompressedTexture2D::677655585707094649::1749291734::1749291750::1::::<><><>0<>0<>8f1e5247225f4db67551d5c9abb6eb75<>res://.godot/imported/Gemini_Generated_Image_17w9yg17w9yg17w9-removebg-preview (1).png-e4068d7370cfd570337d9b08c7eac492.ctex::
 PROFESSORE-removebg-preview.png::CompressedTexture2D/CompressedTexture2D::3455126650372803015::1748959720::1748959744::1::::<><><>0<>0<>03c9b13c9d0595a347f75c89c2d91295<>res://.godot/imported/PROFESSORE-removebg-preview.png-d6c1b505d7efb2be044b59d3c3de8763.ctex::
-::res://scenes/ui/::1749403498
-hud.tscn::PackedScene::3134339997219495314::1749403498::0::1::::<><><>0<>0<><>::uid://b4sagxu3kfgtj::::res://scripts/hud.gd<>uid://dblu7rn05exue::::res://assets/icons/Rectangle 1.png<>uid://b5gm1p278prfl::::res://assets/icons/Rectangle2.png<>uid://clqtecsl8jvka::::res://assets/icons/CervelloIcona.png<>uid://c6866mrkuq1cs::::res://assets/icons/icons8-soldi-50.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://ced03621wvl2q::::res://scenes/oggetti/ChatGPT_Image_7_giu_2025_12_07_25-removebg-preview.png<>uid://c04e21qf0oj5k::::res://assets/icons/icons8-impostazioni-128 (1).png
-::res://scripts/::1749403498
+::res://scenes/ui/::1749458047
+hud.tscn::PackedScene::3134339997219495314::1749458047::0::1::::<><><>0<>0<><>::uid://b4sagxu3kfgtj::::res://scripts/hud.gd<>uid://dblu7rn05exue::::res://assets/icons/Rectangle 1.png<>uid://b5gm1p278prfl::::res://assets/icons/Rectangle2.png<>uid://clqtecsl8jvka::::res://assets/icons/CervelloIcona.png<>uid://c6866mrkuq1cs::::res://assets/icons/icons8-soldi-50.png<>uid://l0nqfp87alnk::::res://assets/fonts/PressStart2P-Regular.ttf<>uid://ced03621wvl2q::::res://scenes/oggetti/ChatGPT_Image_7_giu_2025_12_07_25-removebg-preview.png<>uid://c04e21qf0oj5k::::res://assets/icons/icons8-impostazioni-128 (1).png
+::res://scripts/::1749457860
 classe.gd::GDScript/GDScript::130919850603902097::1749311827::0::1::::<>Node2D<><>0<>0<><>::
 corridoio.gd::GDScript/GDScript::6269049848271682103::1749311487::0::1::::<>Node2D<><>0<>0<><>::
 credits.gd::GDScript/GDScript::7107485044740773863::1747908752::0::1::::<>Control<><>0<>0<><>::
 dialogo.gd::GDScript/GDScript::4827797961841951202::1748959720::0::1::::<>Control<><>0<>0<><>::
-hud.gd::GDScript::4459067903751446511::1749403384::0::1::::<>CanvasLayer<><>0<>0<><>::
+hud.gd::GDScript/GDScript::4459067903751446511::1749403384::0::1::::<>CanvasLayer<><>0<>0<><>::
 letterainiziale.gd::GDScript/GDScript::940862597463205813::1749303406::0::1::::<>CanvasLayer<><>0<>0<><>::
-mainmenu.gd::GDScript/GDScript::3545934194539926399::1749302195::0::1::::mainmenu<>Control<><>0<>0<><>::
-park.gd::GDScript/GDScript::3114252931116189512::1749311635::0::1::::<>Node2D<><>0<>0<><>::
+mainmenu.gd::GDScript::3545934194539926399::1749457860::0::1::::mainmenu<>Control<><>0<>0<><>::
+park.gd::GDScript::3114252931116189512::1749457839::0::1::::<>Node2D<><>0<>0<><>::
 player.gd::GDScript/GDScript::4073256039880348970::1749302195::0::1::::<>CharacterBody2D<><>0<>0<><>::
-room.gd::GDScript::-1::1749403195::0::1::::<>Node2D<><>0<>0<><>::
-seleziona_partita.gd::GDScript::4547908552587721344::1749403498::0::1::::<>Control<><>0<>0<><>::
+room.gd::GDScript::-1::1749457819::0::1::::<>Node2D<><>0<>0<><>::
+seleziona_partita.gd::GDScript/GDScript::4547908552587721344::1749404790::0::1::::<>Control<><>0<>0<><>::
 testo_lettera.gd::GDScript/GDScript::6383190863250907985::1748422718::0::1::::<>RichTextLabel<><>0<>0<><>::
-::res://scripts/autoload/::1749403365
+::res://scripts/autoload/::1749404620
 Global.gd::GDScript/GDScript::4806347254290085498::1749310583::0::1::::<>Node<><>0<>0<><>::
 SettingsManager.gd::GDScript/GDScript::6476104586876204670::1749209916::0::1::::<>Node<><>0<>0<><>::
-StatsManager.gd::GDScript::2320194950077143885::1749403365::0::1::::<>Node<><>0<>0<><>::
-::res://scripts/scriptImpostazioni/::1749209916
+StatsManager.gd::GDScript/GDScript::2320194950077143885::1749404620::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/scriptImpostazioni/::1749457907
 audio_control.gd::GDScript/GDScript::8262088328022669789::1749209916::0::1::::<>HSlider<><>0<>0<><>::
 fullscreen_control.gd::GDScript/GDScript::6930178555744624613::1749209916::0::1::::<>CheckButton<><>0<>0<><>::
 impostazioni.gd::GDScript/GDScript::8580041821643321166::1749209916::0::1::::<>Panel<><>0<>0<><>::
-musicController.gd::GDScript/GDScript::1162938994309007049::1749209916::0::1::::<>Node2D<><>0<>0<><>::
+musicController.gd::GDScript::1162938994309007049::1749457907::0::1::::<>Node<><>0<>0<><>::

@@ -1,3 +1,4 @@
+#park.gd
 extends Node2D
 
 @onready var tilemap = $TileMap
@@ -10,11 +11,10 @@ var near_door = false
 
 func _ready() -> void:
 	await get_tree().process_frame
-
-	# 👇 Salva correttamente la scena attuale all'avvio (debug)
 	StatsManager.current_scene_path = get_tree().current_scene.scene_file_path
 	print("🏞️ Park loaded - current_scene_path impostato a:", StatsManager.current_scene_path)
-
+	#impostazione musica
+	MusicController.play_music(MusicController.track_library["park"], "park")
 	if Global.last_exit == "park":
 		player.global_position = spawn_room.global_position
 

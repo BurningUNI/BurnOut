@@ -10,7 +10,7 @@ var current_porta := ""
 func _ready() -> void:
 	# Registra la scena corrente nel salvataggio
 	StatsManager.current_scene_path = get_tree().current_scene.scene_file_path
-
+	MusicController.play_music(MusicController.track_library["school"], "school")
 	# Posiziona il giocatore in base all'uscita precedente
 	match Global.last_exit:
 		"portaCasa":

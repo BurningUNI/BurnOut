@@ -5,7 +5,7 @@ var near_door = false
 
 func _ready() -> void:
 	StatsManager.current_scene_path = get_tree().current_scene.scene_file_path
-
+	MusicController.play_music(MusicController.track_library["school"], "school")
 func _process(delta: float) -> void:
 	if near_door and Input.is_action_just_pressed("interact"):
 		Global.last_exit = "classe"

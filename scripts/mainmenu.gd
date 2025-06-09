@@ -12,8 +12,7 @@ extends Control
 @onready var stats_manager: Node = get_node("/root/StatsManager") # Usiamo StatsManager per lo stato del gioco
 
 func _ready():
-	var musica = load("res://assets/musiche/puzzle-game-bright-casual-video-game-music-249202.mp3")
-	MusicController.play_music(musica, "menu")
+	MusicController.play_music(MusicController.track_library["room"], "room")
 	# Connetti i segnali dei pulsanti
 	play_button.button_down.connect(on_play_button_pressed)
 	exit_button.button_down.connect(on_exit_pressed)

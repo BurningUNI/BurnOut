@@ -3869,10 +3869,12 @@ position = Vector2(133, 34)
 shape = SubResource("RectangleShape2D_vfrn5")
 
 [node name="InterazioneLabel" type="Label" parent="DeskArea"]
-offset_left = 76.0
-offset_top = 113.0
-offset_right = 211.0
-offset_bottom = 136.0
+offset_left = 74.0
+offset_top = 123.0
+offset_right = 209.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("13_w68ji")
+theme_override_font_sizes/font_size = 5
 
 [node name="PopupStudio" type="Popup" parent="DeskArea"]
 size = Vector2i(219, 107)
