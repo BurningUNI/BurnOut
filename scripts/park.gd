@@ -1,4 +1,4 @@
-#park.gd
+# park.gd
 extends Node2D
 
 @onready var tilemap = $TileMap
@@ -9,12 +9,19 @@ extends Node2D
 
 var near_door = false
 
+# Timer per guadagno salute mentale
+var salute_timer := 0.0
+var guadagno_interval := 12.0  # Ogni 12 secondi reali → 12 minuti gioco
+
 func _ready() -> void:
 	await get_tree().process_frame
 	StatsManager.current_scene_path = get_tree().current_scene.scene_file_path
 	print("🏞️ Park loaded - current_scene_path impostato a:", StatsManager.current_scene_path)
-	#impostazione musica
+	
+	# Musica
 	MusicController.play_music(MusicController.track_library["park"], "park")
+	
+	# Posizione giocatore
 	if Global.last_exit == "park":
 		player.global_position = spawn_room.global_position
 
@@ -22,14 +29,22 @@ func _ready() -> void:
 	label.visible = false
 
 func _process(delta: float) -> void:
+	# Interazione con porta
 	if near_door and Input.is_action_just_pressed("interact"):
 		Global.last_exit = "park"
-
-		# 👇 Imposta la scena verso cui stai andando PRIMA di salvarla
 		StatsManager.current_scene_path = "res://scenes/room.tscn"
 		StatsManager.save_game()
-
 		get_tree().change_scene_to_file("res://scenes/room.tscn")
+
+	# Guadagno salute mentale nel parco
+	if player and player.is_inside_tree():
+		salute_timer += delta
+		if salute_timer >= guadagno_interval:
+			salute_timer = 0.0
+			if StatsManager.salute_mentale < 100:
+				StatsManager.salute_mentale += 1
+				StatsManager.emit_signal("salute_mentale_cambiata", StatsManager.salute_mentale)
+				print("🌿 Relax al parco: salute mentale +1 →", StatsManager.salute_mentale)
 
 func calcola_limiti_mappa():
 	var used_cells = tilemap.get_used_cells(0)
