@@ -1,3 +1,4 @@
+#StatsManager.gd
 extends Node
 
 # --- Variabili di Stato del Gioco ---
@@ -31,7 +32,6 @@ signal letto_pronto(letto_node_ref: Area2D)
 # --- Timer ---
 @onready var timer_tempo: Timer = Timer.new()
 @onready var timer_eventi_settimanali: Timer = Timer.new() # Questo timer gestirà ora solo gli eventi casuali
-@onready var _mental_health_timer: Timer = Timer.new()
 
 const SAVE_GAME_PATH = "user://game_save.json"
 var _letto_node: Area2D = null
@@ -39,7 +39,6 @@ var _letto_node: Area2D = null
 func _ready():
 	add_child(timer_tempo)
 	add_child(timer_eventi_settimanali)
-	add_child(_mental_health_timer)
 
 	if load_game():
 		print("✅ StatsManager: Gioco caricato con successo!")

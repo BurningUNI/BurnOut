@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0naevhyupmjv"]
+[gd_scene load_steps=23 format=3 uid="uid://d0naevhyupmjv"]
 
 [ext_resource type="Texture2D" uid="uid://igvq6yd8fhv7" path="res://assets/scuola/A4.png" id="1_c5bre"]
 [ext_resource type="Script" uid="uid://b4oh323e0ysf" path="res://scripts/classe.gd" id="1_d8tu8"]
@@ -3822,15 +3822,15 @@ size = Vector2(75, 303.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0labe"]
 size = Vector2(52, 90)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n34bj"]
+size = Vector2(523, 105)
+
 [node name="Classe" type="Node2D"]
 script = ExtResource("1_d8tu8")
 
 [node name="HUD" parent="." instance=ExtResource("2_5kxqk")]
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
-
-[node name="PhonePopup" parent="HUD" index="2"]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4854f")
@@ -3908,8 +3908,24 @@ theme_override_fonts/font = ExtResource("8_ooelu")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 
+[node name="areaLezione" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaLezione"]
+position = Vector2(296.5, 486.5)
+shape = SubResource("RectangleShape2D_n34bj")
+
+[node name="Label" type="Label" parent="areaLezione"]
+offset_left = 172.0
+offset_top = 534.0
+offset_right = 399.0
+offset_bottom = 557.0
+theme_override_fonts/font = ExtResource("8_ooelu")
+theme_override_font_sizes/font_size = 5
+
 [connection signal="body_entered" from="areaPorta" to="." method="_on_area_porta_body_entered"]
 [connection signal="body_exited" from="areaPorta" to="." method="_on_area_porta_body_exited"]
+[connection signal="body_entered" from="areaLezione" to="." method="_on_area_lezione_body_entered"]
+[connection signal="body_exited" from="areaLezione" to="." method="_on_area_lezione_body_exited"]
 
 [editable path="HUD"]
 [editable path="Player"]

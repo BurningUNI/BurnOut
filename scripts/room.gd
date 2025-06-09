@@ -75,18 +75,6 @@ func _ready():
 
 	# Calcola i limiti della mappa (utile per la telecamera o altri scopi)
 	calcola_limiti_mappa()
-
-	# --- Riconnessione dei segnali delle aree (essenziale per le interazioni!) ---
-	$BedArea.body_entered.connect(_on_bed_area_body_entered)
-	$BedArea.body_exited.connect(_on_bed_area_body_exited)
-	$DoorArea.body_entered.connect(_on_door_area_body_entered)
-	$DoorArea.body_exited.connect(_on_door_area_body_exited)
-	desk_area.body_entered.connect(_on_desk_area_body_entered)
-	desk_area.body_exited.connect(_on_desk_area_body_exited)
-	analisi_bottone.pressed.connect(_on_analisi_bottone_pressed)
-	programmazione_bottone.pressed.connect(_on_programmazione_bottone_pressed)
-	# --- FINE RICONNESSIONE ---
-
 	# Imposta la visibilità iniziale delle label e dei popup
 	label_interazione.visible = false
 	letto_label.visible = false
