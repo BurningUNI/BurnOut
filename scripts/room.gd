@@ -55,9 +55,9 @@ var near_desk = false # Vero se il giocatore è vicino alla scrivania
 @onready var desk_area: Area2D = $DeskArea# Area di rilevamento della scrivania
 @onready var desk_interazione_label: Label = $DeskArea/InterazioneLabel # Etichetta di interazione con la scrivania
 @onready var popup_studio = $DeskArea/PopupStudio# Popup per la scelta della materia di studio
-@onready var analisi_bottone = $DeskArea/PopupStudio/AnalisiBottone# Bottone per studiare Analisi
-@onready var programmazione_bottone = $DeskArea/PopupStudio/ProgrammazioneBottone #Bottone per studiare Programmazione
-@onready var studio_label: Label = $DeskArea/PopupStudio/studioLabel#Etichetta del popup di studio
+@onready var analisi_bottone = $DeskArea/PopupStudio/VBoxContainer/AnalisiBottone# Bottone per studiare Analisi
+@onready var programmazione_bottone = $DeskArea/PopupStudio/VBoxContainer/ProgrammazioneBottone #Bottone per studiare Programmazione
+@onready var studio_label: Label = $DeskArea/PopupStudio/VBoxContainer/studioLabel#Etichetta del popup di studio
 
 func _ready():
 	# Attendi un frame per assicurarti che tutti i nodi siano pronti
@@ -88,9 +88,6 @@ func _ready():
 	button_park.text = "Vai al parco"
 	button_corridoio.pressed.connect(_vai_al_corridoio)
 	button_park.pressed.connect(_vai_al_parco)
-	
-	# Imposta il testo per il popup di studio
-	studio_label.text = "Scegli cosa studiare:"
 
 
 func _process(_delta: float) -> void:
@@ -246,8 +243,6 @@ func studia(materia: String):
 
 	var ora_attuale = stats_manager.ora
 
-	# Controlla se è nella fascia oraria di blocco notturno (00:00 - 05:59)
-	# Questa è una ridondanza controllata, ma l'input principale è gestito in handle_study_interaction
 	if (ora_attuale >= ORA_INIZIO_BLOCCO_NOTTURNO_STUDIO and ora_attuale < ORA_FINE_BLOCCO_NOTTURNO_STUDIO):
 		display_interaction_message("È troppo tardi per studiare! Devi aspettare il giorno.")
 		return # Interrompe l'esecuzione della funzione qui
@@ -259,13 +254,13 @@ func studia(materia: String):
 		return # Interrompe l'esecuzione se lo studio è al massimo
 
 	var mental_health_loss = 10 # Perdita base di salute mentale
-	var study_gain = 5
+	var study_gain = 3
 	var study_message = ""
 
 	# Controlla per le penalità (dalle 21:00 in poi, fino alle 23:59)
 	if ora_attuale >= ORA_INIZIO_PENALTY_STUDIO:
 		mental_health_loss = 15 # Aumenta la perdita di salute mentale
-		study_gain = 3# Diminuisce il guadagno di studio
+		study_gain = 2# Diminuisce il guadagno di studio
 		study_message = " Hai studiato fino a tardi!" # Messaggio per studio notturno
 	else:
 		study_message = " Hai studiato bene!" # Messaggio per studio normale
@@ -357,10 +352,6 @@ func calcola_limiti_mappa():
 	var limit_top = min_y * tile_size.y
 	var limit_right = (max_x + 1) * tile_size.x
 	var limit_bottom = (max_y + 1) * tile_size.y
-
-	# Questi limiti possono essere impostati in una variabile globale o usati dalla telecamera
-	# GLOBAL.map_limits = Rect2(Vector2(limit_left, limit_top), Vector2(limit_right - limit_left, limit_bottom - limit_top))
-	# print("📐 Limiti mappa impostati in Global: ", GLOBAL.map_limits)
 
 	print("📐 Limiti mappa combinati tra tutti i livelli:")
 	print("Left: ", limit_left)

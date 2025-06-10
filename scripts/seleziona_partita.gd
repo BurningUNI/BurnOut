@@ -78,7 +78,6 @@ func load_save_data() -> SaveData:
 
 
 func _on_nuova_partita_button_pressed() -> void:
-	MusicController.play_click_sound()
 	stats_manager.resetta_statistiche()
 	get_tree().change_scene_to_packed(intro_scene)
 
@@ -87,10 +86,6 @@ func _on_nuova_partita_button_mouse_entered() -> void:
 
 
 func _on_continua_partita_button_pressed() -> void:
-	MusicController.play_click_sound()
-	# --- AGGIORNAMENTO: Carica il gioco tramite stats_manager ---
-	# Il stats_manager.load_game() verrà chiamato automaticamente in _ready() del StatsManager
-	# prima che la scena venga caricata.
 	var scene_path = stats_manager.current_scene_path # Usa stats_manager per ottenere il percorso
 	print("Tentativo di caricare la scena:", scene_path) # 👈 Debug
 	
@@ -108,7 +103,6 @@ func _on_continua_partita_button_mouse_entered() -> void:
 
 
 func _on_indietro_button_pressed() -> void:
-	MusicController.play_click_sound()
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
 	
 func _on_indietro_button_mouse_entered() -> void:

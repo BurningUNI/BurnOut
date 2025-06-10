@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 
 func _on_indietro_pressed() -> void:
 	await get_tree().create_timer(0.2).timeout
-	MusicController.play_click_sound()
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
 
 
@@ -23,7 +22,6 @@ func _on_indietro_mouse_entered() -> void:
 
 func _on_crediti_buttons_pressed() -> void:
 	await get_tree().create_timer(0.2).timeout
-	MusicController.play_click_sound()
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
 

@@ -20,16 +20,13 @@ func _ready():
 
 func on_play_button_pressed() -> void:
 	await get_tree().create_timer(0.2).timeout
-	MusicController.play_click_sound()
 	get_tree().change_scene_to_packed(seleziona_partita_scene)
 
 func on_settings_pressed()-> void:
 	await get_tree().create_timer(0.2).timeout
-	MusicController.play_click_sound()
 	get_tree().change_scene_to_packed(impostazioni)
 
 func on_exit_pressed() -> void:
-	MusicController.play_click_sound()
 	get_tree().quit()
 
 func _on_gioca_mouse_entered():
@@ -40,6 +37,3 @@ func _on_impostazioni_mouse_entered():
 
 func _on_esci_mouse_entered():
 	MusicController.play_hover_sound()
-
-func on_button_hovered(): # Funzione generica per i suoni al click (duplicata, puoi rimuoverla se _on_XYZ_mouse_entered bastano)
-	MusicController.play_click_sound()

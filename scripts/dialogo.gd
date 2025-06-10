@@ -29,6 +29,7 @@ var indice_domanda  : int           = 0    # domanda corrente
 
 # ──────────────  READY  ──────────────
 func _ready() -> void:
+	MusicController.play_music(MusicController.track_library["esame"], "esame")
 	domanda_box.visible = false
 	rispostaA.pressed.connect(check_risposta.bind("A"))
 	rispostaB.pressed.connect(check_risposta.bind("B"))

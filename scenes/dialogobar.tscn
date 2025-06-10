@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://rdlbgrkhw0yu"]
+
+[ext_resource type="Script" uid="uid://r16nk3bawgld" path="res://scripts/dialogobar.gd" id="1_j8y8y"]
+[ext_resource type="Texture2D" uid="uid://ccvi3qug88kv5" path="res://assets/backgrounds/sfondoBar.jpeg" id="2_ip8g5"]
+[ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_5pssh"]
+
+[node name="DialogoBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_j8y8y")
+
+[node name="Sfondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1332.0
+offset_bottom = 897.0
+texture = ExtResource("2_ip8g5")
+expand_mode = 1
+
+[node name="DialogoPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 364.0
+offset_right = 1152.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogoPanel"]
+layout_mode = 2
+
+[node name="DialogoLabel" type="Label" parent="DialogoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5pssh")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="DialogoPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="SceltaA" type="Button" parent="DialogoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5pssh")
+text = "Sì, sto bene!"
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="SceltaB" type="Button" parent="DialogoPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_5pssh")
+text = "No, giornata dura..."
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="TornaACasaButton" type="Button" parent="DialogoPanel"]
+visible = false
+layout_mode = 2
+text = "Torna a casa"

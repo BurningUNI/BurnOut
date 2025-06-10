@@ -14,6 +14,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5la"]
 bg_color = Color(0.196078, 0.0980392, 0, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mj13f"]
 texture = ExtResource("10_kicr4")
@@ -103,7 +105,6 @@ theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 
 [node name="PhonePopup" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -139,10 +140,12 @@ offset_right = 755.0
 offset_bottom = 595.0
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 18
 text = "Buongiorno, sta iniziando la 
 tua prima lezione. Recati davanti alla 
 porta per andare a lezione"
+autowrap_mode = 3
 
 [node name="ChiudiBottone" type="Button" parent="PhonePopup"]
 layout_mode = 0
@@ -151,6 +154,24 @@ offset_top = 607.0
 offset_right = 637.0
 offset_bottom = 655.0
 text = "Chiudi"
+
+[node name="AcceptButton" type="Button" parent="PhonePopup"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 609.0
+offset_right = 554.0
+offset_bottom = 655.0
+theme_override_fonts/font = ExtResource("6_oj5la")
+text = "Accetta"
+
+[node name="DeclineButton" type="Button" parent="PhonePopup"]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 610.0
+offset_right = 732.0
+offset_bottom = 656.0
+theme_override_fonts/font = ExtResource("6_oj5la")
+text = "Rifiuta"
 
 [node name="ImpostazioniButton" type="TextureButton" parent="."]
 offset_left = 2123.0
@@ -198,7 +219,6 @@ theme_override_font_sizes/font_size = 40
 text = "Torna al menù"
 
 [node name="StatoStudioButton" type="TextureButton" parent="."]
-visible = false
 offset_left = 29.0
 offset_top = 1153.0
 offset_right = 180.0
@@ -279,9 +299,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_oj5la")
 theme_override_font_sizes/font_size = 18
 
-[connection signal="pressed" from="PhonePopup/ChiudiBottone" to="." method="_on_reject_button_pressed"]
+[connection signal="mouse_entered" from="PhonePopup/ChiudiBottone" to="." method="_on_chiudi_bottone_mouse_entered"]
+[connection signal="pressed" from="PhonePopup/ChiudiBottone" to="." method="_on_chiudi_button_pressed"]
 [connection signal="pressed" from="ImpostazioniButton" to="." method="_on_impostazioni_button_pressed"]
+[connection signal="mouse_entered" from="MenuPause/Panel/RiprendiButton" to="." method="_on_riprendi_button_mouse_entered"]
 [connection signal="pressed" from="MenuPause/Panel/RiprendiButton" to="." method="_on_riprendi_button_pressed"]
+[connection signal="mouse_entered" from="MenuPause/Panel/TornaAlMenuButton" to="." method="_on_torna_al_menu_button_mouse_entered"]
 [connection signal="pressed" from="MenuPause/Panel/TornaAlMenuButton" to="." method="_on_torna_al_menu_button_pressed"]
 [connection signal="pressed" from="StatoStudioButton" to="." method="_on_stato_studio_button_pressed"]
-[connection signal="pressed" from="StatoStudioButton/Panel/ChiudiButton" to="." method="_on_chiudi_button_pressed"]
+[connection signal="mouse_entered" from="StatoStudioButton/Panel/ChiudiButton" to="." method="_on_chiudi_button_mouse_entered"]
+[connection signal="pressed" from="StatoStudioButton/Panel/ChiudiButton" to="." method="_on_chiudi_bottonestudio_pressed"]

@@ -14,6 +14,8 @@ var track_library := {
 	"main_menu": preload("res://assets/musiche/room_music.mp3"),
 	"gameover": preload("res://assets/musiche/gameover.mp3"),
 	"win": preload("res://assets/musiche/winsound.mp3"),
+	"bar": preload("res://assets/musiche/barmusic.mp3"),
+	"esame": preload("res://assets/musiche/esamesong.mp3"),
 	"school": preload("res://assets/musiche/school_music.mp3")
 }
 

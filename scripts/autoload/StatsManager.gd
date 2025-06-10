@@ -50,8 +50,8 @@ func _ready():
 	add_child(timer_tempo)
 	add_child(timer_eventi_settimanali)
 
-	# Tenta di caricare il gioco all'avvio
-	if load_game():
+	var loaded_successfully = load_game()
+	if loaded_successfully:
 		print("✅ StatsManager: Gioco caricato con successo!")
 		print("📁 Scena da caricare al prossimo avvio:", current_scene_path)
 	else:
@@ -60,7 +60,11 @@ func _ready():
 		# Assicurati che i soldi e il contatore stipendio siano a valori iniziali per una nuova partita
 		soldi = 100
 		giorni_dall_ultimo_stipendio = 0
-
+		# Imposta l'ora di default per un nuovo gioco, se non c'è salvataggio
+		ora = 7 # Esempio: inizia alle 7 del mattino
+		minuti = 0
+		giorno = 1
+		indice_giorno_settimana = 1 # Esempio: Lunedì (indice 1)
 
 	# Configura e avvia il timer del tempo (1 minuto di gioco = 1 secondo reale)
 	timer_tempo.wait_time = 1.0
@@ -73,10 +77,12 @@ func _ready():
 	timer_eventi_settimanali.timeout.connect(self._trigger_evento_casuale)
 	timer_eventi_settimanali.start()
 	
-	# Emette i segnali iniziali per aggiornare subito l'interfaccia utente al caricamento del gioco
+	# Emette i segnali iniziali PER AGGIORNARE L'UI con i valori caricati o di default
+	# Questo blocco DEVE essere dopo il caricamento del gioco.
 	emit_signal("salute_mentale_cambiata", salute_mentale)
 	emit_signal("soldi_cambiati", soldi)
 	emit_signal("tempo_cambiato", ora, minuti, nomi_giorni_settimana[indice_giorno_settimana])
+
 
 # Chiamata quando l'applicazione sta per chiudersi (es. clic sulla X della finestra)
 func _notification(what):
@@ -280,7 +286,13 @@ func load_game() -> bool:
 	return true
 
 # --- Altre Funzioni Utili ---
-
+func imposta_orario(nuova_ora: int, nuovi_minuti: int):
+	ora = nuova_ora
+	minuti = nuovi_minuti
+	# Emetti il segnale 'tempo_cambiato' per aggiornare l'HUD e qualsiasi altro nodo in ascolto
+	# Si assume che 'nomi_giorni_settimana' e 'indice_giorno_settimana' siano già gestiti altrove per il giorno corrente
+	emit_signal("tempo_cambiato", ora, minuti, nomi_giorni_settimana[indice_giorno_settimana])
+	print("StatsManager: Orario impostato manualmente a ", "%02d:%02d" % [ora, minuti])
 # Registra il nodo del letto per interazioni future
 func register_bed(bed_node: Area2D):
 	_letto_node = bed_node

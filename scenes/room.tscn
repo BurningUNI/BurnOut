@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bqi37yu6hf1u"]
+[gd_scene load_steps=36 format=4 uid="uid://bqi37yu6hf1u"]
 
 [ext_resource type="Texture2D" uid="uid://ch3hlesnkkjlh" path="res://assets/casa/house/bathroom.png" id="1_36trf"]
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_eom3m"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dehcg1qk1r3ti" path="res://assets/casa/modular_pixel_houses/doors.png" id="9_ybpoa"]
 [ext_resource type="PackedScene" uid="uid://ckethyc4i20vj" path="res://scenes/player.tscn" id="10_qtoah"]
 [ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="13_w68ji"]
+[ext_resource type="Texture2D" uid="uid://bed7ojtw5y3lp" path="res://assets/backgrounds/pannelloUscita.png" id="14_23wr2"]
+[ext_resource type="Texture2D" uid="uid://8n1kkl3r0uss" path="res://assets/backgrounds/sfondoSceltaStudio.jpg" id="15_3j2fx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybpoa"]
 texture = ExtResource("1_36trf")
@@ -3711,8 +3713,16 @@ size = Vector2(43, 81)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tk5fv"]
 size = Vector2(41, 51.5)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23wr2"]
+content_margin_left = 98.0
+content_margin_right = 98.0
+texture = ExtResource("14_23wr2")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrn5"]
 size = Vector2(52, 38)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dynfe"]
+texture = ExtResource("15_3j2fx")
 
 [node name="Room" type="Node2D"]
 y_sort_enabled = true
@@ -3722,6 +3732,10 @@ script = ExtResource("1_eom3m")
 offset = Vector2(0, -0.5)
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, -0.5)
+
+[node name="StatisticheSfondo" parent="HUD" index="0"]
+offset_top = 1.0
+offset_bottom = 237.0
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
@@ -3842,25 +3856,37 @@ horizontal_alignment = 1
 position = Vector2(-248, 16)
 
 [node name="SceltaUscita" type="PopupPanel" parent="."]
-size = Vector2i(151, 101)
+size = Vector2i(500, 300)
 visible = true
+theme_override_styles/panel = SubResource("StyleBoxTexture_23wr2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SceltaUscita"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 147.0
-offset_bottom = 97.0
+offset_left = 98.0
+offset_right = 402.0
+offset_bottom = 300.0
+alignment = 1
 
 [node name="Label" type="Label" parent="SceltaUscita/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_w68ji")
 text = "Dove vuoi andare?"
+horizontal_alignment = 1
 
 [node name="ButtonCorridoio" type="Button" parent="SceltaUscita/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_w68ji")
 text = "Vai in università"
+vertical_icon_alignment = 2
+
+[node name="Label2" type="Label" parent="SceltaUscita/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
 
 [node name="ButtonPark" type="Button" parent="SceltaUscita/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("13_w68ji")
 text = "Vai al parco"
 
 [node name="DeskArea" type="Area2D" parent="."]
@@ -3878,28 +3904,44 @@ offset_bottom = 138.0
 theme_override_fonts/font = ExtResource("13_w68ji")
 theme_override_font_sizes/font_size = 5
 
-[node name="PopupStudio" type="Popup" parent="DeskArea"]
-size = Vector2i(219, 107)
+[node name="PopupStudio" type="PopupPanel" parent="DeskArea"]
+size = Vector2i(464, 266)
 visible = true
+theme_override_styles/panel = SubResource("StyleBoxTexture_dynfe")
 
-[node name="studioLabel" type="Label" parent="DeskArea/PopupStudio"]
-offset_right = 99.0
-offset_bottom = 23.0
+[node name="VBoxContainer" type="VBoxContainer" parent="DeskArea/PopupStudio"]
+offset_right = 464.0
+offset_bottom = 266.0
+
+[node name="Separatore3" type="Label" parent="DeskArea/PopupStudio/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="studioLabel" type="Label" parent="DeskArea/PopupStudio/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_w68ji")
 text = "Scegli la materia da studiare"
+horizontal_alignment = 1
 
-[node name="AnalisiBottone" type="Button" parent="DeskArea/PopupStudio"]
-offset_left = 1.0
-offset_top = 33.0
-offset_right = 218.0
-offset_bottom = 56.0
+[node name="Separatore2" type="Label" parent="DeskArea/PopupStudio/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="AnalisiBottone" type="Button" parent="DeskArea/PopupStudio/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_w68ji")
 text = "Analisi"
+vertical_icon_alignment = 2
 
-[node name="ProgrammazioneBottone" type="Button" parent="DeskArea/PopupStudio"]
-offset_left = 1.0
-offset_top = 76.0
-offset_right = 218.0
-offset_bottom = 99.0
+[node name="Separatore" type="Label" parent="DeskArea/PopupStudio/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="ProgrammazioneBottone" type="Button" parent="DeskArea/PopupStudio/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_w68ji")
 text = "Programmazione"
+vertical_icon_alignment = 2
 
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]
@@ -3907,7 +3949,8 @@ text = "Programmazione"
 [connection signal="body_exited" from="BedArea" to="." method="_on_bed_area_body_exited"]
 [connection signal="body_entered" from="DeskArea" to="." method="_on_desk_area_body_entered"]
 [connection signal="body_exited" from="DeskArea" to="." method="_on_desk_area_body_exited"]
-[connection signal="pressed" from="DeskArea/PopupStudio/AnalisiBottone" to="." method="_on_analisi_bottone_pressed"]
-[connection signal="pressed" from="DeskArea/PopupStudio/ProgrammazioneBottone" to="." method="_on_programmazione_bottone_pressed"]
+[connection signal="pressed" from="DeskArea/PopupStudio/VBoxContainer/AnalisiBottone" to="." method="_on_analisi_bottone_pressed"]
+[connection signal="pressed" from="DeskArea/PopupStudio/VBoxContainer/ProgrammazioneBottone" to="." method="_on_programmazione_bottone_pressed"]
 
+[editable path="HUD"]
 [editable path="Player"]
