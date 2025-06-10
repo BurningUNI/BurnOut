@@ -1,4 +1,4 @@
-# StatsManager.gd
+#StatsManager
 extends Node
 
 # --- Variabili di Stato del Gioco ---
@@ -52,11 +52,11 @@ func _ready():
 
 	var loaded_successfully = load_game()
 	if loaded_successfully:
-		print("✅ StatsManager: Gioco caricato con successo!")
-		print("📁 Scena da caricare al prossimo avvio:", current_scene_path)
+		print("StatsManager: Gioco caricato con successo!")
+		print("Scena da caricare al prossimo avvio:", current_scene_path)
 	else:
-		print("⚠️ StatsManager: Nessun salvataggio trovato o errore nel caricamento, inizio nuova partita.")
-		print("📁 Scena di default (nessun salvataggio):", current_scene_path)
+		print("StatsManager: Nessun salvataggio trovato o errore nel caricamento, inizio nuova partita.")
+		print("Scena di default (nessun salvataggio):", current_scene_path)
 		# Assicurati che i soldi e il contatore stipendio siano a valori iniziali per una nuova partita
 		soldi = 100
 		giorni_dall_ultimo_stipendio = 0
@@ -170,7 +170,7 @@ func _check_and_update_time():
 
 # Funzione per gestire l'assegnazione dello stipendio ogni X giorni
 func _controlla_e_assegna_stipendio():
-	const GIORNI_PER_STIPENDIO = 3
+	const GIORNI_PER_STIPENDIO = 4 # Modificato a 4 giorni come richiesto
 	const AMMONTARE_STIPENDIO = 25
 
 	if giorni_dall_ultimo_stipendio >= GIORNI_PER_STIPENDIO:
@@ -193,10 +193,10 @@ func _on_mental_health_timer_timeout():
 func _trigger_evento_casuale():
 	print("StatsManager: Trigger Evento Casuale!")
 	var eventi = [
-		{"nome": "Multa per divieto di sosta", "costo": randi_range(50, 150), "messaggio": "Hai ricevuto una multa inaspettata!"},
-		{"nome": "Spesa medica", "costo": randi_range(100, 300), "messaggio": "Una visita dal medico urgente... costa cara."},
-		{"nome": "Ripara guasto in casa", "costo": randi_range(75, 250), "messaggio": "Un tubo rotto? È ora di chiamare l'idraulico!"},
-		{"nome": "Offerta speciale", "costo": -randi_range(20, 80), "messaggio": "Offerta speciale! Hai risparmiato un po' di soldi!"}
+		{"nome": "Multa per divieto di sosta", "costo": randi_range(20, 80), "messaggio": "Hai ricevuto una multa inaspettata!"},
+		{"nome": "Spesa medica", "costo": randi_range(30, 100), "messaggio": "Una visita dal medico urgente... costa cara."},
+		{"nome": "Ripara guasto in casa", "costo": randi_range(25, 90), "messaggio": "Un tubo rotto? È ora di chiamare l'idraulico!"},
+		{"nome": "Offerta speciale", "costo": -randi_range(30, 100), "messaggio": "Offerta speciale! Hai risparmiato un po' di soldi!"}
 	]
 	var evento_scelto = eventi[randi_range(0, eventi.size() - 1)]
 	var tipo = evento_scelto.nome
@@ -204,11 +204,12 @@ func _trigger_evento_casuale():
 	var messaggio = evento_scelto.messaggio
 
 	if importo > 0: # È un costo (denaro sottratto)
-		if sottrai_soldi(importo):
+		if sottrai_soldi(importo): # La funzione sottrai_soldi() ora gestisce il controllo dei fondi
 			emit_signal("evento_casuale_triggerato", tipo, messaggio, importo)
 			print("StatsManager: Evento casuale: ", tipo, " - Costo: ", importo)
 		else:
-			print("StatsManager: Evento casuale fallito per soldi insufficienti: ", tipo)
+			# L'evento non avviene per soldi insufficienti
+			print("StatsManager: Evento casuale fallito per soldi insufficienti: ", tipo, " (necessari: ", importo, ", disponibili: ", soldi, ")")
 	else: # È un guadagno (denaro aggiunto)
 		aggiungi_soldi(abs(importo)) # abs() per trasformare il costo negativo in un guadagno positivo
 		emit_signal("evento_casuale_triggerato", tipo, messaggio, abs(importo))
