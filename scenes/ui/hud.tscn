@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkwkee3ck8nss"]
+[gd_scene load_steps=14 format=3 uid="uid://bkwkee3ck8nss"]
 
 [ext_resource type="Script" uid="uid://b4sagxu3kfgtj" path="res://scripts/hud.gd" id="1_8qguk"]
 [ext_resource type="Texture2D" uid="uid://dblu7rn05exue" path="res://assets/icons/Rectangle 1.png" id="1_bo48s"]
@@ -8,9 +8,15 @@
 [ext_resource type="FontFile" uid="uid://l0nqfp87alnk" path="res://assets/fonts/PressStart2P-Regular.ttf" id="6_oj5la"]
 [ext_resource type="Texture2D" uid="uid://ced03621wvl2q" path="res://scenes/oggetti/ChatGPT_Image_7_giu_2025_12_07_25-removebg-preview.png" id="7_gss2c"]
 [ext_resource type="Texture2D" uid="uid://c04e21qf0oj5k" path="res://assets/icons/icons8-impostazioni-128 (1).png" id="8_h022r"]
+[ext_resource type="Texture2D" uid="uid://bebbg8r16mohl" path="res://assets/icons/icons8-apri-libro-64.png" id="9_4jqwt"]
+[ext_resource type="Texture2D" uid="uid://ct8aqbtepaqvr" path="res://assets/backgrounds/agendabg.png" id="10_kicr4"]
+[ext_resource type="Texture2D" uid="uid://cjofbq4ksjj4o" path="res://assets/icons/IndietroButtonIcon (1).png" id="11_mj13f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5la"]
 bg_color = Color(0.196078, 0.0980392, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mj13f"]
+texture = ExtResource("10_kicr4")
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_8qguk")
@@ -97,6 +103,7 @@ theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 
 [node name="PhonePopup" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -176,17 +183,105 @@ offset_left = 845.0
 offset_top = 395.0
 offset_right = 1481.0
 offset_bottom = 611.0
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 40
 text = "Riprendi"
 
 [node name="TornaAlMenuButton" type="Button" parent="MenuPause/Panel"]
 layout_mode = 0
-offset_left = 898.0
+offset_left = 851.0
 offset_top = 766.0
-offset_right = 1468.0
+offset_right = 1481.0
 offset_bottom = 979.0
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 40
 text = "Torna al menù"
+
+[node name="StatoStudioButton" type="TextureButton" parent="."]
+visible = false
+offset_left = 29.0
+offset_top = 1153.0
+offset_right = 180.0
+offset_bottom = 1293.0
+texture_normal = ExtResource("9_4jqwt")
+stretch_mode = 0
+
+[node name="Panel" type="Panel" parent="StatoStudioButton"]
+layout_mode = 0
+offset_left = 699.0
+offset_top = -897.0
+offset_right = 1430.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mj13f")
+
+[node name="Scritta1" type="Label" parent="StatoStudioButton/Panel"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 91.0
+offset_right = 569.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.952941, 0, 0.196078, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 25
+text = " "
+
+[node name="StatoAnalisi" type="Label" parent="StatoStudioButton/Panel"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 163.0
+offset_right = 591.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 25
+text = "a"
+
+[node name="StatoProgrammazione" type="Label" parent="StatoStudioButton/Panel"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 240.0
+offset_right = 687.0
+offset_bottom = 266.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 25
+text = "a"
+
+[node name="ChiudiButton" type="TextureButton" parent="StatoStudioButton/Panel"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 746.0
+offset_right = 730.0
+offset_bottom = 950.0
+texture_normal = ExtResource("11_mj13f")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="StatoStudioButton/Panel/ChiudiButton"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 90.0
+offset_right = 218.0
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(0.952941, 0.721569, 0.196078, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 19
+text = "INDIETRO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CounterEsame" type="Label" parent="StatoStudioButton/Panel"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 469.0
+offset_right = 620.0
+offset_bottom = 494.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_oj5la")
+theme_override_font_sizes/font_size = 18
 
 [connection signal="pressed" from="PhonePopup/ChiudiBottone" to="." method="_on_reject_button_pressed"]
 [connection signal="pressed" from="ImpostazioniButton" to="." method="_on_impostazioni_button_pressed"]
 [connection signal="pressed" from="MenuPause/Panel/RiprendiButton" to="." method="_on_riprendi_button_pressed"]
 [connection signal="pressed" from="MenuPause/Panel/TornaAlMenuButton" to="." method="_on_torna_al_menu_button_pressed"]
+[connection signal="pressed" from="StatoStudioButton" to="." method="_on_stato_studio_button_pressed"]
+[connection signal="pressed" from="StatoStudioButton/Panel/ChiudiButton" to="." method="_on_chiudi_button_pressed"]

@@ -4,6 +4,7 @@ extends CanvasLayer
 # COSTANTI
 # ---------------------------------------------------------------------
 const PAUSE_MODE_PROCESS = 2
+const GIORNO_ESAME = 15 # Definisci il giorno dell'esame qui, come costante globale
 
 # ---------------------------------------------------------------------
 # NODI ESISTENTI
@@ -17,7 +18,8 @@ const PAUSE_MODE_PROCESS = 2
 
 # TELEFONO
 @onready var phone_popup: Control = $PhonePopup
-@onready var chiudi_button: Button = $PhonePopup/ChiudiBottone
+@onready var chiudi_button: Button = $PhonePopup/ChiudiBottone # Questo è il chiudi del telefono
+
 var phone_shown: bool = false
 var last_popup_day: int = -1
 
@@ -26,6 +28,18 @@ var last_popup_day: int = -1
 @onready var menu_pause: Control = $MenuPause
 @onready var riprendi_button: Button = $MenuPause/Panel/RiprendiButton
 @onready var torna_al_menu_button: Button = $MenuPause/Panel/TornaAlMenuButton
+
+# STATO STUDIO
+@onready var stato_studio_button: TextureButton = $StatoStudioButton # Il pulsante che apre il pannello
+
+# Riferimenti al pannello e ai suoi figli, basandosi sulla tua gerarchia mostrata:
+@onready var pannello_stato_studio: Panel = $StatoStudioButton/Panel
+@onready var label_stato_analisi: Label = $StatoStudioButton/Panel/StatoAnalisi
+@onready var label_stato_programmazione: Label = $StatoStudioButton/Panel/StatoProgrammazione
+@onready var chiudi_pannello_stato_studio_button: TextureButton = $StatoStudioButton/Panel/ChiudiButton
+@onready var scritta1_label: Label = $StatoStudioButton/Panel/Scritta1
+@onready var counter_esame_label: Label = $StatoStudioButton/Panel/CounterEsame
+
 
 # ---------------------------------------------------------------------
 func _ready():
@@ -71,6 +85,18 @@ func _ready():
 
 	menu_pause.visible = false
 	get_tree().paused = false
+
+	# Collega StatoStudioButton e il suo pulsante di chiusura
+	if is_instance_valid(stato_studio_button) and not stato_studio_button.pressed.is_connected(_on_stato_studio_button_pressed):
+		stato_studio_button.pressed.connect(_on_stato_studio_button_pressed)
+		print("HUD: Segnale STATO STUDIO BUTTON collegato.")
+
+	# NOTA: Il ChiudiButton del pannello di studio è ora un fratello del Panel, non un figlio del Panel
+	if is_instance_valid(chiudi_pannello_stato_studio_button) and not chiudi_pannello_stato_studio_button.pressed.is_connected(_on_chiudi_pannello_stato_studio_button_pressed):
+		chiudi_pannello_stato_studio_button.pressed.connect(_on_chiudi_pannello_stato_studio_button_pressed)
+		print("HUD: Segnale CHIUDI PANNELLO STATO STUDIO BUTTON collegato.")
+
+	pannello_stato_studio.visible = false # Assicurati che il pannello sia nascosto all'avvio
 	print("HUD: Inizializzazione completa.")
 
 # ---------------------------------------------------------------------
@@ -91,6 +117,9 @@ func _on_tempo_cambiato(nuova_ora: int, nuovi_minuti: int, nuovo_giorno_nome: St
 	]
 
 	_check_phone_popup(nuova_ora, nuovi_minuti, stats_manager.indice_giorno_settimana, stats_manager.giorno)
+
+	# NON AGGIORNARE scritta1_label e counter_esame_label QUI.
+	# L'aggiornamento avviene quando il pannello dello stato studio viene aperto (vedi _aggiorna_percentuali_stato_studio).
 
 func _on_evento_casuale_triggerato(tipo_evento: String, messaggio: String, importo: int) -> void:
 	var full_message = "Evento: %s! %s" % [tipo_evento, messaggio]
@@ -131,7 +160,7 @@ func _check_phone_popup(ora: int, minuti: int, giorno_della_settimana: int, gior
 		phone_popup.visible = true
 		print("HUD: Popup telefono mostrato alle ", ora, ":", minuti)
 
-func _on_chiudi_button_pressed() -> void:
+func _on_chiudi_button_pressed() -> void: # Questo è il chiudi del telefono
 	phone_popup.visible = false
 	print("HUD: Popup telefono chiuso.")
 
@@ -152,3 +181,36 @@ func _on_torna_al_menu_button_pressed() -> void:
 	get_tree().paused = false
 	print("HUD: Torna al menu premuto, cambio scena...")
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+
+# ---------------------------------------------------------------------
+# STATO STUDIO
+# ---------------------------------------------------------------------
+func _on_stato_studio_button_pressed() -> void:
+	pannello_stato_studio.visible = true
+	chiudi_pannello_stato_studio_button.visible = true
+	get_tree().paused = true # Metti in pausa il gioco quando il pannello è aperto
+	_aggiorna_percentuali_stato_studio() # Aggiorna le percentuali E le nuove label quando il pannello viene aperto
+	print("HUD: Pannello stato studio aperto.")
+
+func _on_chiudi_pannello_stato_studio_button_pressed() -> void:
+	pannello_stato_studio.visible = false
+	chiudi_pannello_stato_studio_button.visible = false
+	get_tree().paused = false # Riprendi il gioco quando il pannello viene chiuso
+	print("HUD: Pannello stato studio chiuso.")
+
+func _aggiorna_percentuali_stato_studio() -> void:
+	if is_instance_valid(stats_manager):
+		label_stato_analisi.text = "Analisi: %d%%" % stats_manager.statoAnalisi
+		label_stato_programmazione.text = "Programmazione: %d%%" % stats_manager.statoProgrammazione
+
+		# NUOVO: Aggiorna le label "scritta1" e "CounterEsame"
+		if is_instance_valid(scritta1_label):
+			scritta1_label.text = str(stats_manager.giorno) + "° giorno"
+
+		if is_instance_valid(counter_esame_label):
+			var giorni_rimanenti = GIORNO_ESAME - stats_manager.giorno
+			counter_esame_label.text = "Mancano " + str(max(0, giorni_rimanenti)) + " giorni all'esame"
+
+		print("HUD: Percentuali studio e stato agenda aggiornate da StatsManager.")
+	else:
+		print("HUD ERRORE: impossibile aggiornare percentuali e stato agenda, StatsManager non valido.")

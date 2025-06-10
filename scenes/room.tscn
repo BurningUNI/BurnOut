@@ -3841,13 +3841,15 @@ horizontal_alignment = 1
 [node name="SpawnRoom" type="Marker2D" parent="."]
 position = Vector2(-248, 16)
 
-[node name="SceltaUscita" type="Popup" parent="."]
-size = Vector2i(143, 100)
+[node name="SceltaUscita" type="PopupPanel" parent="."]
+size = Vector2i(151, 101)
 visible = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SceltaUscita"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 147.0
+offset_bottom = 97.0
 
 [node name="Label" type="Label" parent="SceltaUscita/VBoxContainer"]
 layout_mode = 2

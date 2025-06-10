@@ -84,7 +84,7 @@ func _ready():
 	popup_studio.hide() # Nasconde il popup di studio all'avvio
 
 	# Imposta il testo dei pulsanti di uscita e collega le funzioni
-	button_corridoio.text = "Vai al Corridoio"
+	button_corridoio.text = "Vai in università"
 	button_park.text = "Vai al parco"
 	button_corridoio.pressed.connect(_vai_al_corridoio)
 	button_park.pressed.connect(_vai_al_parco)
